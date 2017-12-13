@@ -999,7 +999,7 @@ static int sugov_start(struct cpufreq_policy *policy)
 		memset(sg_cpu, 0, sizeof(*sg_cpu));
 		sg_cpu->sg_policy = sg_policy;
 		sg_cpu->cpu = cpu;
-		sg_cpu->flags = SCHED_CPUFREQ_RT;
+		sg_cpu->flags = 0;
 		sg_cpu->iowait_boost_max = policy->cpuinfo.max_freq;
 	}
 
