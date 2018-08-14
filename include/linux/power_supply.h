@@ -315,6 +315,7 @@ enum power_supply_property {
 	POWER_SUPPLY_PROP_BATTERY_TYPE,
 	POWER_SUPPLY_PROP_DUMP_SRAM,
 	POWER_SUPPLY_PROP_CYCLE_COUNTS,
+	POWER_SUPPLY_PROP_MAX
 };
 
 enum power_supply_type {
