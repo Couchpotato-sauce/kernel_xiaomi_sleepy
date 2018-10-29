@@ -1,4 +1,4 @@
-/* Copyright (c) 2014, 2016-2017, 2020, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2014, 2016-2017 The Linux Foundation. All rights reserved.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -641,10 +641,8 @@ audio_cal_exit(void)
 #endif
 }
 
-#ifndef MODULE
 subsys_initcall(audio_cal_init);
 module_exit(audio_cal_exit);
-#endif
 
 MODULE_DESCRIPTION("SoC QDSP6v2 Audio Calibration driver");
 MODULE_LICENSE("GPL v2");
