@@ -1378,7 +1378,7 @@ static int msm_probe(struct platform_device *pdev)
 	if (WARN_ON(rc < 0))
 		goto entity_fail;
 
-	pvdev->vdev->entity.function = QCAMERA_VNODE_GROUP_ID;
+	pvdev->vdev->entity.group_id = QCAMERA_VNODE_GROUP_ID;
 #endif
 
 	msm_v4l2_dev->notify = msm_sd_notify;
