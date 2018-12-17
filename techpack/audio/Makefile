@@ -55,8 +55,12 @@ ifeq ($(CONFIG_ARCH_MSM8909), y)
 include $(srctree)/techpack/audio/config/msm8909auto.conf
 export $(shell sed 's/=.*//' $(srctree)/techpack/audio/config/msm8909auto.conf)
 endif
-ifeq ($(CONFIG_ARCH_MSM8953), y)
-include $(srctree)/techpack/audio/config/msm8953auto.conf
+ifeq ($(CONFIG_PROJECT_VINCE), y)
+include $(srctree)/techpack/audio/config/msm8953auto-vince.conf
+export
+endif
+ifeq ($(CONFIG_PROJECT_SAKURA), y)
+include $(srctree)/techpack/audio/config/msm8953auto-sakura.conf
 export
 endif
 
@@ -102,9 +106,13 @@ ifeq ($(CONFIG_ARCH_SDXPOORWILLS), y)
 LINUXINCLUDE    += \
                 -include $(srctree)/techpack/audio/config/sdxpoorwillsautoconf.h
 endif
-ifeq ($(CONFIG_ARCH_MSM8953), y)
+ifeq ($(CONFIG_PROJECT_VINCE), y)
 LINUXINCLUDE    += \
-                -include $(srctree)/techpack/audio/config/msm8953autoconf.h
+                -include $(srctree)/techpack/audio/config/msm8953autoconf-vince.h
+endif
+ifeq ($(CONFIG_PROJECT_SAKURA), y)
+LINUXINCLUDE    += \
+                -include $(srctree)/techpack/audio/config/msm8953autoconf-sakura.h
 endif
 
 obj-y += asoc/
