@@ -3773,6 +3773,8 @@ static irqreturn_t dwc3_check_event_buf(struct dwc3 *dwc)
 	u32 reg;
 
 	evt = dwc->ev_buf;
+	if (!evt)
+		return IRQ_NONE;
 
 	/* Controller is being halted, ignore the interrupts */
 	if (!dwc->pullups_connected) {
