@@ -7,3 +7,4 @@ obj-$(CONFIG_MSMB_CAMERA) += msm_led_trigger.o
 obj-$(CONFIG_MSMB_CAMERA) += msm_led_torch.o
 obj-$(CONFIG_MSMB_CAMERA) += msm_flash.o
 obj-$(CONFIG_MSMB_CAMERA) += qm215_gpio_flash.o
+obj-$(CONFIG_MSMB_CAMERA) += msm_frontflash.o
