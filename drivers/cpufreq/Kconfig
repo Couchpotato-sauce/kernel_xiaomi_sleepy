@@ -286,6 +286,12 @@ config INPUT_BOOST_FREQ
 	help
 	  Input boost frequency for the CPU.
 
+config MAX_BOOST_FREQ
+	int "CPU max-boost freq"
+	default "0"
+	help
+	  Max-boost frequency for the CPU.
+
 endif
 
 comment "CPU frequency scaling drivers"

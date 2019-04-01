@@ -35,6 +35,24 @@ struct boost_drv {
 
 static struct boost_drv *boost_drv_g __read_mostly;
 
+static u32 get_input_boost_freq(struct cpufreq_policy *policy)
+{
+	u32 freq;
+
+	freq = CONFIG_INPUT_BOOST_FREQ;
+
+	return min(freq, policy->max);
+}
+
+static u32 get_max_boost_freq(struct cpufreq_policy *policy)
+{
+	u32 freq;
+
+	freq = CONFIG_MAX_BOOST_FREQ;
+
+	return min(freq, policy->max);
+}
+
 static u32 get_boost_state(struct boost_drv *b)
 {
 	return atomic_read(&b->state);
@@ -178,7 +196,7 @@ static int cpu_notifier_cb(struct notifier_block *nb,
 
 	/* Boost CPU to max frequency for max boost */
 	if (state & MAX_BOOST) {
-		policy->min = policy->max;
+		policy->min = get_max_boost_freq(policy);
 		return NOTIFY_OK;
 	}
 
@@ -186,11 +204,10 @@ static int cpu_notifier_cb(struct notifier_block *nb,
 	 * Boost to policy->max if the boost frequency is higher. When
 	 * unboosting, set policy->min to the absolute min freq for the CPU.
 	 */
-	if (state & INPUT_BOOST) {
-		policy->min = min(policy->max, CONFIG_INPUT_BOOST_FREQ);
-	} else {
+	if (state & INPUT_BOOST)
+		policy->min = get_input_boost_freq(policy);
+	else
 		policy->min = policy->cpuinfo.min_freq;
-	}
 
 	return NOTIFY_OK;
 }
