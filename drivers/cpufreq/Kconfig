@@ -280,6 +280,13 @@ config WAKE_BOOST_DURATION_MS
 	help
 	  Wake boost duration in milliseconds.
 
+config BASE_BOOST_FREQ
+	int "CPU base frequency"
+	default "0"
+	help
+	  Base frequency for the CPU. It will revert to this
+	  frequency after all boosts have expired.
+
 config INPUT_BOOST_FREQ
 	int "CPU input boost freq"
 	default "0"
