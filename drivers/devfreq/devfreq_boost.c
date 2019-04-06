@@ -6,7 +6,7 @@
 #define pr_fmt(fmt) "devfreq_boost: " fmt
 
 #include <linux/devfreq_boost.h>
-#include <linux/msm_drm_notify.h>
+#include <linux/fb.h>
 #include <linux/input.h>
 #include <linux/slab.h>
 
@@ -27,7 +27,7 @@ struct boost_dev {
 
 struct df_boost_drv {
 	struct boost_dev devices[DEVFREQ_MAX];
-	struct notifier_block msm_drm_notif;
+	struct notifier_block fb_notif;
 };
 
 static struct df_boost_drv *df_boost_drv_g __read_mostly;
@@ -246,20 +246,20 @@ static void devfreq_max_unboost(struct work_struct *work)
 	mutex_unlock(&df->lock);
 }
 
-static int msm_drm_notifier_cb(struct notifier_block *nb,
+static int fb_notifier_cb(struct notifier_block *nb,
 			       unsigned long action, void *data)
 {
-	struct df_boost_drv *d = container_of(nb, typeof(*d), msm_drm_notif);
-	struct msm_drm_notifier *evdata = data;
+	struct df_boost_drv *d = container_of(nb, typeof(*d), fb_notif);
+	struct fb_event *evdata = data;
 	int *blank = evdata->data;
 	bool screen_awake;
 
 	/* Parse framebuffer blank events as soon as they occur */
-	if (action != MSM_DRM_EARLY_EVENT_BLANK)
+	if (action != FB_BLANK_UNBLANK)
 		return NOTIFY_OK;
 
 	/* Boost when the screen turns on and unboost when it turns off */
-	screen_awake = *blank == MSM_DRM_BLANK_UNBLANK;
+	screen_awake = *blank == FB_BLANK_UNBLANK;
 	devfreq_disable_boosting(d, !screen_awake);
 	if (screen_awake) {
 		int i;
@@ -396,11 +396,11 @@ static int __init devfreq_boost_init(void)
 		goto destroy_wq;
 	}
 
-	d->msm_drm_notif.notifier_call = msm_drm_notifier_cb;
-	d->msm_drm_notif.priority = INT_MAX;
-	ret = msm_drm_register_client(&d->msm_drm_notif);
+	d->fb_notif.notifier_call = fb_notifier_cb;
+	d->fb_notif.priority = INT_MAX;
+	ret = fb_register_client(&d->fb_notif);
 	if (ret) {
-		pr_err("Failed to register msm_drm notifier, err: %d\n", ret);
+		pr_err("Failed to register fb notifier, err: %d\n", ret);
 		goto unregister_handler;
 	}
 
