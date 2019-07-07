@@ -8,7 +8,6 @@ msm_kgsl_core-y = \
 	kgsl_pwrctrl.o \
 	kgsl_pwrscale.o \
 	kgsl_mmu.o \
-	kgsl_snapshot.o \
 	kgsl_events.o \
 	kgsl_pool.o \
 	kgsl_gmu.o \
@@ -25,10 +24,7 @@ msm_adreno-y += \
 	adreno_ringbuffer.o \
 	adreno_drawctxt.o \
 	adreno_dispatch.o \
-	adreno_snapshot.o \
-	adreno_coresight.o \
 	adreno_a5xx.o \
-	adreno_a5xx_snapshot.o \
 	adreno_a5xx_preempt.o \
 	adreno_a6xx_preempt.o \
 	adreno_sysfs.o \
