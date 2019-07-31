@@ -235,4 +235,3 @@ mbhc_dlkm-y := $(MBHC_OBJS)
 ifeq ($(CONFIG_MSM_EXT_DISPLAY),y)
 obj-$(CONFIG_SND_SOC_MSM_HDMI_CODEC_RX) += hdmi_dlkm.o
 hdmi_dlkm-y := $(HDMICODEC_OBJS)
-endif
