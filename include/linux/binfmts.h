@@ -124,4 +124,15 @@ extern void set_binfmt(struct linux_binfmt *new);
 extern ssize_t read_code(struct file *, unsigned long, loff_t, size_t);
 bool task_is_zygote(struct task_struct *task);
 
+static inline bool task_is_booster(struct task_struct *tsk)
+{
+	char comm[sizeof(tsk->comm)];
+
+	get_task_comm(comm, tsk);
+	return !strcmp(comm, "init") || !strcmp(comm, "NodeLooperThrea") ||
+	       !strcmp(comm, "power@1.3-servi") ||
+	       !strcmp(comm, "perf@1.0-servic") ||
+	       !strcmp(comm, "init.qcom.post_");
+}
+
 #endif /* _LINUX_BINFMTS_H */
