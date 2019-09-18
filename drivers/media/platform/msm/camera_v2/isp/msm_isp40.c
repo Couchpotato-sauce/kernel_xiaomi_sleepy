@@ -292,9 +292,6 @@ static void msm_vfe40_init_hardware_reg(struct vfe_device *vfe_dev)
 	struct msm_vfe_hw_init_parms vbif_parms;
 	struct msm_vfe_hw_init_parms ds_parms;
 
-	if (vfe_used_by_adsp(vfe_dev))
-		return;
-
 	qos_parms.entries = "qos-entries";
 	qos_parms.regs = "qos-regs";
 	qos_parms.settings = "qos-settings";
@@ -772,9 +769,6 @@ static long msm_vfe40_reset_hardware(struct vfe_device *vfe_dev,
 	spin_lock_irqsave(&vfe_dev->reset_completion_lock, flags);
 	init_completion(&vfe_dev->reset_complete);
 	spin_unlock_irqrestore(&vfe_dev->reset_completion_lock, flags);
-
-	if (vfe_used_by_adsp(vfe_dev))
-		return msecs_to_jiffies(50);
 
 	if (first_start) {
 		msm_camera_io_w_mb(0x1FF, vfe_dev->vfe_base + 0xC);
@@ -1750,9 +1744,6 @@ static int msm_vfe40_axi_halt(struct vfe_device *vfe_dev,
 	int rc = 0;
 	enum msm_vfe_input_src i;
 	unsigned long flags;
-
-	if (vfe_used_by_adsp(vfe_dev))
-		return msecs_to_jiffies(50);
 
 	/* Keep only halt and restart mask */
 	msm_vfe40_set_halt_restart_mask(vfe_dev);
