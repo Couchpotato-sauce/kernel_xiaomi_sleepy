@@ -25,7 +25,7 @@
 #include <linux/of.h>
 #include <linux/wait.h>
 #include <linux/sched.h>
-#if IS_ENABLED(CONFIG_MSM_AVTIMER)
+#if IS_ENABLED(CONFIG_AVTIMER_LEGACY)
 #ifndef CONFIG_MSMB_CAMERA_LEGACY
 #include <media/msmb_isp.h>
 #else
