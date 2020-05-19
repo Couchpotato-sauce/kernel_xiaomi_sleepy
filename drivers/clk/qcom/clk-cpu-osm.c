@@ -377,21 +377,27 @@ static const struct clk_ops clk_ops_l3_osm = {
 	.list_rate = clk_osm_list_rate,
 	.recalc_rate = l3_clk_recalc_rate,
 	.set_rate = l3_clk_set_rate,
+#ifdef CONFIG_DEBUG_FS
 	.debug_init = clk_debug_measure_add,
+#endif
 };
 
 static const struct clk_ops clk_ops_pwrcl_core = {
 	.set_rate = clk_pwrcl_set_rate,
 	.determine_rate = clk_cpu_determine_rate,
 	.recalc_rate = clk_cpu_recalc_rate,
+#ifdef CONFIG_DEBUG_FS
 	.debug_init = clk_debug_measure_add,
+#endif
 };
 
 static const struct clk_ops clk_ops_perfcl_core = {
 	.set_rate = clk_cpu_set_rate,
 	.determine_rate = clk_cpu_determine_rate,
 	.recalc_rate = clk_cpu_recalc_rate,
+#ifdef CONFIG_DEBUG_FS
 	.debug_init = clk_debug_measure_add,
+#endif
 };
 
 static const struct clk_ops clk_ops_cpu_osm = {
@@ -399,7 +405,9 @@ static const struct clk_ops clk_ops_cpu_osm = {
 	.recalc_rate = clk_osm_recalc_rate,
 	.list_rate = clk_osm_list_rate,
 	.determine_rate = clk_osm_determine_rate,
+#ifdef CONFIG_DEBUG_FS
 	.debug_init = clk_debug_measure_add,
+#endif
 };
 
 static struct clk_init_data osm_clks_init[] = {
