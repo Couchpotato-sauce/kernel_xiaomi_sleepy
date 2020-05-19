@@ -25,7 +25,9 @@ nf_defrag_ipv6-y := nf_defrag_ipv6_hooks.o nf_conntrack_reasm.o
 obj-$(CONFIG_NF_DEFRAG_IPV6) += nf_defrag_ipv6.o
 
 # logging
+ifdef CONFIG_KERNEL_DEBUG
 obj-$(CONFIG_NF_LOG_IPV6) += nf_log_ipv6.o
+endif
 
 # reject
 obj-$(CONFIG_NF_REJECT_IPV6) += nf_reject_ipv6.o

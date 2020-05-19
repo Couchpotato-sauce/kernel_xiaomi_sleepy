@@ -23,6 +23,12 @@ void nf_queue_nf_hook_drop(struct net *net, const struct nf_hook_entry *entry);
 int __init netfilter_queue_init(void);
 
 /* nf_log.c */
+#ifdef CONFIG_DEBUG_KERNEL
 int __init netfilter_log_init(void);
-
+#else
+static inline int __init netfilter_log_init(void)
+{
+	return 0;
+}
+#endif
 #endif

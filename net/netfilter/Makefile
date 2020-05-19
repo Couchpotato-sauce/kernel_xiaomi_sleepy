@@ -1,4 +1,7 @@
-netfilter-objs := core.o nf_log.o nf_queue.o nf_sockopt.o
+netfilter-objs := core.o nf_queue.o nf_sockopt.o
+ifdef CONFIG_DEBUG_KERNEL
+netfilter-objs += nf_log.o
+endif
 
 nf_conntrack-y	:= nf_conntrack_core.o nf_conntrack_standalone.o nf_conntrack_expect.o nf_conntrack_helper.o nf_conntrack_proto.o nf_conntrack_l3proto_generic.o nf_conntrack_proto_generic.o nf_conntrack_proto_tcp.o nf_conntrack_proto_udp.o nf_conntrack_extend.o nf_conntrack_acct.o nf_conntrack_seqadj.o
 nf_conntrack-$(CONFIG_NF_CONNTRACK_TIMEOUT) += nf_conntrack_timeout.o
@@ -11,7 +14,9 @@ obj-$(CONFIG_NETFILTER) = netfilter.o
 obj-$(CONFIG_NETFILTER_NETLINK) += nfnetlink.o
 obj-$(CONFIG_NETFILTER_NETLINK_ACCT) += nfnetlink_acct.o
 obj-$(CONFIG_NETFILTER_NETLINK_QUEUE) += nfnetlink_queue.o
+ifdef CONFIG_DEBUG_KERNEL
 obj-$(CONFIG_NETFILTER_NETLINK_LOG) += nfnetlink_log.o
+endif
 
 # connection tracking
 obj-$(CONFIG_NF_CONNTRACK) += nf_conntrack.o
@@ -46,7 +51,9 @@ nf_nat-y	:= nf_nat_core.o nf_nat_proto_unknown.o nf_nat_proto_common.o \
 		   nf_nat_proto_udp.o nf_nat_proto_tcp.o nf_nat_helper.o
 
 # generic transport layer logging
+ifdef CONFIG_KERNEL_DEBUG
 obj-$(CONFIG_NF_LOG_COMMON) += nf_log_common.o
+endif
 
 obj-$(CONFIG_NF_NAT) += nf_nat.o
 obj-$(CONFIG_NF_NAT_REDIRECT) += nf_nat_redirect.o
@@ -70,7 +77,10 @@ obj-$(CONFIG_NETFILTER_SYNPROXY) += nf_synproxy_core.o
 obj-$(CONFIG_NF_DUP_NETDEV)	+= nf_dup_netdev.o
 
 # nf_tables
-nf_tables-objs += nf_tables_core.o nf_tables_api.o nf_tables_trace.o
+nf_tables-objs += nf_tables_core.o nf_tables_api.o
+ifdef CONFIG_DEBUG_KERNEL
+nf_tables-objs += nf_tables_trace.o
+endif
 nf_tables-objs += nft_immediate.o nft_cmp.o nft_range.o
 nf_tables-objs += nft_bitwise.o nft_byteorder.o nft_payload.o
 nf_tables-objs += nft_lookup.o nft_dynset.o
@@ -92,7 +102,9 @@ obj-$(CONFIG_NFT_REJECT_INET)	+= nft_reject_inet.o
 obj-$(CONFIG_NFT_SET_RBTREE)	+= nft_set_rbtree.o
 obj-$(CONFIG_NFT_SET_HASH)	+= nft_set_hash.o
 obj-$(CONFIG_NFT_COUNTER)	+= nft_counter.o
+ifdef CONFIG_KERNEL_DEBUG
 obj-$(CONFIG_NFT_LOG)		+= nft_log.o
+endif
 obj-$(CONFIG_NFT_MASQ)		+= nft_masq.o
 obj-$(CONFIG_NFT_REDIR)		+= nft_redir.o
 obj-$(CONFIG_NFT_HASH)		+= nft_hash.o
@@ -120,9 +132,11 @@ obj-$(CONFIG_NETFILTER_XT_TARGET_DSCP) += xt_DSCP.o
 obj-$(CONFIG_NETFILTER_XT_TARGET_HL) += xt_HL.o
 obj-$(CONFIG_NETFILTER_XT_TARGET_HMARK) += xt_HMARK.o
 obj-$(CONFIG_NETFILTER_XT_TARGET_LED) += xt_LED.o
+ifdef CONFIG_KERNEL_DEBUG
 obj-$(CONFIG_NETFILTER_XT_TARGET_LOG) += xt_LOG.o
-obj-$(CONFIG_NETFILTER_XT_TARGET_NETMAP) += xt_NETMAP.o
 obj-$(CONFIG_NETFILTER_XT_TARGET_NFLOG) += xt_NFLOG.o
+endif
+obj-$(CONFIG_NETFILTER_XT_TARGET_NETMAP) += xt_NETMAP.o
 obj-$(CONFIG_NETFILTER_XT_TARGET_NFQUEUE) += xt_NFQUEUE.o
 obj-$(CONFIG_NETFILTER_XT_TARGET_RATEEST) += xt_RATEEST.o
 obj-$(CONFIG_NETFILTER_XT_TARGET_REDIRECT) += xt_REDIRECT.o
@@ -131,7 +145,9 @@ obj-$(CONFIG_NETFILTER_XT_TARGET_TPROXY) += xt_TPROXY.o
 obj-$(CONFIG_NETFILTER_XT_TARGET_TCPMSS) += xt_TCPMSS.o
 obj-$(CONFIG_NETFILTER_XT_TARGET_TCPOPTSTRIP) += xt_TCPOPTSTRIP.o
 obj-$(CONFIG_NETFILTER_XT_TARGET_TEE) += xt_TEE.o
+ifdef CONFIG_KERNEL_DEBUG
 obj-$(CONFIG_NETFILTER_XT_TARGET_TRACE) += xt_TRACE.o
+endif
 obj-$(CONFIG_NETFILTER_XT_TARGET_IDLETIMER) += xt_IDLETIMER.o
 obj-$(CONFIG_NETFILTER_XT_TARGET_HARDIDLETIMER) += xt_HARDIDLETIMER.o
 

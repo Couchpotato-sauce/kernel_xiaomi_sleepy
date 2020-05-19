@@ -15,8 +15,10 @@ obj-$(CONFIG_NF_NAT_IPV4) += nf_nat_ipv4.o
 obj-$(CONFIG_NF_DEFRAG_IPV4) += nf_defrag_ipv4.o
 
 # logging
+ifdef CONFIG_KERNEL_DEBUG
 obj-$(CONFIG_NF_LOG_ARP) += nf_log_arp.o
 obj-$(CONFIG_NF_LOG_IPV4) += nf_log_ipv4.o
+endif
 
 # reject
 obj-$(CONFIG_NF_REJECT_IPV4) += nf_reject_ipv4.o
