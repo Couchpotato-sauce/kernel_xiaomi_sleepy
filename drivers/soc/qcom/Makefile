@@ -36,10 +36,12 @@ obj-$(CONFIG_QCOM_MEMORY_DUMP_V2) += memory_dump_v2.o
 obj-$(CONFIG_QCOM_MINIDUMP) += msm_minidump.o minidump_log.o
 obj-$(CONFIG_QCOM_RUN_QUEUE_STATS) += rq_stats.o
 obj-$(CONFIG_QCOM_SECURE_BUFFER) += secure_buffer.o
-obj-$(CONFIG_MSM_SMEM) += msm_smem.o smem_debug.o
-obj-$(CONFIG_MSM_SMD)	+= msm_smd.o smd_debug.o smd_private.o smd_init_dt.o smsm_debug.o
+obj-$(CONFIG_MSM_SMEM) += msm_smem.o
+obj-$(CONFIG_MSM_SMD)	+= msm_smd.o smd_private.o smd_init_dt.o
 obj-$(CONFIG_MSM_GLINK) += glink.o glink_ssr.o
 ifdef CONFIG_DEBUG_FS
+obj-$(CONFIG_MSM_SMEM) += smem_debug.o
+obj-$(CONFIG_MSM_SMD)   += smd_debug.o smsm_debug.o
 obj-$(CONFIG_MSM_GLINK) += glink_debugfs.o
 endif
 obj-$(CONFIG_MSM_TZ_SMMU) += msm_tz_smmu.o
@@ -59,7 +61,10 @@ endif
 obj-$(CONFIG_QTI_SYSTEM_PM) += system_pm.o
 obj-$(CONFIG_MSM_SERVICE_NOTIFIER) += service-notifier.o
 obj-$(CONFIG_MSM_SERVICE_LOCATOR) += service-locator.o
-obj-$(CONFIG_MSM_SMP2P) += msm_smp2p.o smp2p_loopback.o smp2p_debug.o smp2p_sleepstate.o
+obj-$(CONFIG_MSM_SMP2P) += msm_smp2p.o smp2p_loopback.o smp2p_sleepstate.o
+ifdef CONFIG_DEBUG_FS
+obj-$(CONFIG_MSM_SMP2P)	+= 	smp2p_debug.o
+endif
 obj-$(CONFIG_MSM_IPC_ROUTER_SMD_XPRT) += ipc_router_smd_xprt.o
 obj-$(CONFIG_MSM_IPC_ROUTER_USB_XPRT) += ipc_router_usb_xprt.o
 obj-$(CONFIG_MSM_IPC_ROUTER_MHI_XPRT) += ipc_router_mhi_xprt.o
