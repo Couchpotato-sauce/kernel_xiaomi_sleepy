@@ -10,7 +10,9 @@ obj-$(CONFIG_IOMMU_IOVA) += iova.o
 obj-$(CONFIG_MSM_TZ_SMMU) += io-pgtable-msm-secure.o
 obj-$(CONFIG_IOMMU_IO_PGTABLE_FAST) += io-pgtable-fast.o dma-mapping-fast.o
 obj-$(CONFIG_OF_IOMMU)	+= of_iommu.o
+ifdef CONFIG_DEBUG_KERNEL
 obj-$(CONFIG_IOMMU_DEBUG) += iommu-debug.o
+endif
 obj-$(CONFIG_MSM_IOMMU) += msm_iommu.o
 obj-$(CONFIG_AMD_IOMMU) += amd_iommu.o amd_iommu_init.o
 obj-$(CONFIG_AMD_IOMMU_V2) += amd_iommu_v2.o
