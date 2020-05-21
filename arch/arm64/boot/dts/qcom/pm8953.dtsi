@@ -357,7 +357,7 @@
 &thermal_zones {
 	xo-therm-adc {
 		polling-delay-passive = <0>;
-		polling-delay = <0>;
+		polling-delay = <1000>;
 		thermal-sensors = <&pm8953_adc_tm 0x32>;
 		thermal-governor = "user_space";
 		wake-capable-sensor;
