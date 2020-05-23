@@ -19,6 +19,7 @@ GNU General Public License for more details.
 static int __init audio_q6_init(void)
 {
 	adsp_err_init();
+	audio_cal_init();
 	rtac_init();
 	adm_init();
 	afe_init();
