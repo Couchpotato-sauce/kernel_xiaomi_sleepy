@@ -337,7 +337,7 @@ config your key info here */
 #define GTP_DEBUG(fmt, arg...) \
 do { \
 	if (GTP_DEBUG_ON) {\
-		pr_info("<<-GTP-DEBUG->> [%d]"fmt"\n", __LINE__, ##arg);\
+		pr_debug("<<-GTP-DEBUG->> [%d]"fmt"\n", __LINE__, ##arg);\
 	} \
 } while (0)
 #define GTP_DEBUG_ARRAY(array, num) \
@@ -345,20 +345,20 @@ do { \
 	s32 i;\
 	u8 *a = array;\
 	if (GTP_DEBUG_ARRAY_ON) {\
-		pr_warn("<<-GTP-DEBUG-ARRAY->>\n");\
+		pr_debug("<<-GTP-DEBUG-ARRAY->>\n");\
 		for (i = 0; i < (num); i++) {\
-			pr_warn("%02x  ", (a)[i]);\
+			pr_debug("%02x  ", (a)[i]);\
 			if ((i + 1) % 10 == 0) {\
-				pr_warn("\n");\
+				pr_debug("\n");\
 			} \
 		} \
-		pr_warn("\n");\
+		pr_debug("\n");\
 	} \
 } while (0)
 #define GTP_DEBUG_FUNC() \
 do {\
 	if (GTP_DEBUG_FUNC_ON) {\
-		pr_warn("<<-GTP-FUNC->>  Func:%s@Line:%d\n", \
+		pr_debug("<<-GTP-FUNC->>  Func:%s@Line:%d\n", \
 		__func__, __LINE__);\
 	} \
 } while (0)
