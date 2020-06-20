@@ -582,8 +582,6 @@ static void gtp_mt_slot_report(struct goodix_ts_data *ts, u8 touch_num,
 				input_mt_report_slot_state(ts->input_dev,
 							   MT_TOOL_FINGER, true);		/*finger DWN send true*/
 				if (!p_down[points->id]) {
-					printk("[GTP]:F%d x%d y%d DWN\n", \
-							cur_touch, points->x, points->y);
 					p_down[points->id] = 1;
 				}
 			}
@@ -610,7 +608,6 @@ static void gtp_mt_slot_report(struct goodix_ts_data *ts, u8 touch_num,
 				pre_pen_id = 0xff;
 			} else {
 				if (p_down[points->id]) {
-					printk("[GTP]:F UP\n");
 					p_down[points->id] = 0;
 				}
 				input_mt_report_slot_state(ts->input_dev,
