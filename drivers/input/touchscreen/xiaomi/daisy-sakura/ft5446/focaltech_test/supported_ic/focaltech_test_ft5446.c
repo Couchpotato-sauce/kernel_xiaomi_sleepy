@@ -2245,7 +2245,6 @@ static unsigned char GetRawData(void)
 	int iRow = 0;
 	int iCol = 0;
 
-	printk("%s:ENTER FUNC ---- %d\n",__func__,__LINE__);
 
 	//--------------------------------------------Enter Factory Mode
 	ReCode = enter_factory_mode();
@@ -3017,7 +3016,6 @@ TEST_ERR:
 
 static int tp_data_dump_proc_open (struct inode* inode, struct file* file)
 {
-	printk("%s:ENTER FUNC ---- %d\n",__func__,__LINE__);
 	return single_open(file, tp_data_dump_proc_show, NULL);
 }
 
@@ -3033,7 +3031,6 @@ static const struct file_operations tp_data_dump_proc_fops =
 int fts_tp_data_dump_proc(void){
 	int ret = 0;
 
-	printk("%s:ENTER FUNC ---- %d\n",__func__,__LINE__);
 	tp_data_dump_proc = proc_create(FTS_PROC_TP_DATA_DUMP, 0444, NULL, &tp_data_dump_proc_fops);
 	if (tp_data_dump_proc == NULL){
 		printk("fts, create_proc_entry tp_data_dump_proc failed\n");

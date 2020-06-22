@@ -796,9 +796,7 @@ void gtp_reset_guitar(struct i2c_client *client, s32 ms)
 {
 	struct goodix_ts_data *ts = i2c_get_clientdata(client);
 
-	dev_info(&client->dev, "%s:ENTER FUNC ---- %d\n", __func__, __LINE__);
 
-	dev_info(&client->dev, "Guitar reset");
 	set_bit(PANEL_RESETTING, &ts->flags);
 	if (!gpio_is_valid(ts->pdata->rst_gpio)) {
 		dev_warn(&client->dev, "reset failed no valid reset gpio");
@@ -822,7 +820,6 @@ void gtp_reset_guitar(struct i2c_client *client, s32 ms)
 
 	clear_bit(PANEL_RESETTING, &ts->flags);
 
-	dev_info(&client->dev, "%s:Exit FUNC ---- %d\n", __func__, __LINE__);
 }
 
 /*******************************************************
@@ -885,11 +882,9 @@ static s8 gtp_enter_sleep(struct goodix_ts_data *ts)
 
 	while (retry++ < 5) {
 		ret = gtp_i2c_write(ts->client, i2c_control_buf, 3);
-		if (ret > 0) {
-			dev_info(&ts->client->dev, "Enter sleep mode\n");
-
+		if (ret > 0) 
 			return ret;
-		}
+		
 		usleep_range(10000, 11000);
 	}
 	dev_err(&ts->client->dev, "Failed send sleep cmd\n");
@@ -1504,7 +1499,6 @@ static int gtp_pinctrl_init(struct goodix_ts_data *ts)
 {
 	struct goodix_pinctrl *pinctrl = &ts->pinctrl;
 
-	dev_info(&ts->client->dev, "%s:ENTER FUNC ---- %d\n", __func__, __LINE__);
 
 	pinctrl->pinctrl = devm_pinctrl_get(&ts->client->dev);
 	if (IS_ERR_OR_NULL(pinctrl->pinctrl)) {
@@ -1565,7 +1559,6 @@ static int gtp_request_io_port(struct goodix_ts_data *ts)
 {
 	int ret = 0;
 
-	dev_info(&ts->client->dev, "%s:ENTER FUNC ---- %d\n", __func__, __LINE__);
 
 	if (gpio_is_valid(ts->pdata->irq_gpio)) {
 		ret = gpio_request(ts->pdata->irq_gpio, "goodix_ts_int");
@@ -2116,7 +2109,6 @@ static int gtp_power_on(struct goodix_ts_data *ts)
 {
 	int ret = 0;
 
-	dev_info(&ts->client->dev, "%s:ENTER FUNC ---- %d\n", __func__, __LINE__);
 
 	if (ts->vdd_ana) {
 		ret = regulator_enable(ts->vdd_ana);
@@ -2238,7 +2230,6 @@ static int gtp_probe(struct i2c_client *client, const struct i2c_device_id *id)
 	struct goodix_ts_data *ts;
 	struct goodix_ts_platform_data *pdata;
 
-	dev_info(&client->dev, "%s:ENTER FUNC ---- %d\n", __func__, __LINE__);
 
 	/* do NOT remove these logs */
 	dev_info(&client->dev, "GTP Driver Version: %s\n", GTP_DRIVER_VERSION);
@@ -2405,7 +2396,6 @@ static int gtp_probe(struct i2c_client *client, const struct i2c_device_id *id)
 
 	gtp_test_sysfs_init();
 
-	dev_info(&client->dev, "%s:EXIT FUNC ---- %d\n", __func__, __LINE__);
 
 	return 0;
 
@@ -2486,7 +2476,6 @@ static void gtp_clear_touch_event(struct goodix_ts_data *ts)
 {
 	int i;
 
-	dev_info(&ts->client->dev, "%s:ENTER ---- %d\n",  __func__,  __LINE__);
 	mutex_lock(&ts->lock);
 	for (i = 0; i < ts->pdata->max_touch_id; i++) {
 		input_mt_slot(ts->input_dev, i);
@@ -2499,14 +2488,12 @@ static void gtp_clear_touch_event(struct goodix_ts_data *ts)
 	input_sync(ts->input_dev);
 	ts->pre_touch = 0;
 	mutex_unlock(&ts->lock);
-	dev_info(&ts->client->dev, "%s:Exit ---- %d\n",  __func__,  __LINE__);
  }
 
 static void gtp_suspend(struct goodix_ts_data *ts)
 {
 	int ret = -1;
 
-	dev_info(&ts->client->dev, "%s:ENTER FUNC ---- %d\n",  __func__,  __LINE__);
 
 	if (test_bit(FW_UPDATE_RUNNING, &ts->flags)) {
 		dev_warn(&ts->client->dev,
@@ -2514,10 +2501,8 @@ static void gtp_suspend(struct goodix_ts_data *ts)
 		return;
 	}
 
-	if (test_and_set_bit(SLEEP_MODE, &ts->flags)) {
-		dev_info(&ts->client->dev, "Already in suspend state\n");
+	if (test_and_set_bit(SLEEP_MODE, &ts->flags)) 
 		return;
-	}
 
 	dev_dbg(&ts->client->dev, "Try enter suspend mode\n");
 
@@ -2549,7 +2534,6 @@ static void gtp_suspend(struct goodix_ts_data *ts)
 	/*	delay 48 + 10ms to ensure reliability */
 	msleep(GTP_58_DLY_MS);
 
-	dev_info(&ts->client->dev, "%s:EXIT FUNC ---- %d\n",  __func__,  __LINE__);
 }
 
 static int gtp_gesture_wakeup(struct goodix_ts_data *ts)
@@ -2575,7 +2559,6 @@ static void gtp_resume(struct goodix_ts_data *ts)
 {
 	int ret = 0;
 
-	dev_info(&ts->client->dev, "%s:ENTER FUNC ---- %d\n",  __func__,  __LINE__);
 
 	if (test_bit(FW_UPDATE_RUNNING, &ts->flags)) {
 		dev_info(&ts->client->dev,
@@ -2583,12 +2566,8 @@ static void gtp_resume(struct goodix_ts_data *ts)
 		return;
 	}
 
-	if (!test_bit(SLEEP_MODE, &ts->flags)) {
-		dev_dbg(&ts->client->dev, "Already in awake state\n");
+	if (!test_bit(SLEEP_MODE, &ts->flags)) 
 		return;
-	}
-
-	dev_info(&ts->client->dev, "Try resume from sleep mode\n");
 
 	gtp_work_control_enable(ts, false);
 
@@ -2627,7 +2606,6 @@ static void gtp_resume(struct goodix_ts_data *ts)
 
 	clear_bit(SLEEP_MODE, &ts->flags);
 	gtp_work_control_enable(ts, true);
-	dev_info(&ts->client->dev, "%s:EXIT FUNC ---- %d\n",  __func__,  __LINE__);
 }
 
 #if defined(CONFIG_FB)
@@ -2674,13 +2652,9 @@ static int gtp_pm_suspend(struct device *dev)
 	struct i2c_client *client = to_i2c_client(dev);
 	struct goodix_ts_data *ts = i2c_get_clientdata(client);
 
-	dev_info(&ts->client->dev, "Enter %s\n",  __func__);
-
 	if (ts && lcm_ffbm_mode) {
 		dev_info(&ts->client->dev, "Suspend by i2c pm.");
 		gtp_suspend(ts);
-	} else if (!lcm_ffbm_mode) {
-		dev_info(&ts->client->dev, "We are not in ffbm mode\n");
 	}
 
 	return 0;
@@ -2691,15 +2665,11 @@ static int gtp_pm_resume(struct device *dev)
 	struct i2c_client *client = to_i2c_client(dev);
 	struct goodix_ts_data *ts = i2c_get_clientdata(client);
 
-	dev_info(&ts->client->dev, "Enter %s\n",  __func__);
-
 	if (ts && lcm_ffbm_mode) {
 		dev_info(&ts->client->dev, "Resume by i2c pm.");
 		gtp_resume(ts);
-	} else if (!lcm_ffbm_mode) {
-		dev_info(&ts->client->dev, "We are not in ffbm mode\n");
-	}
-
+	} 
+	
 	return 0;
 }
 
@@ -2883,7 +2853,6 @@ void gtp_esd_on(struct goodix_ts_data *ts)
 	if (ts_esd->esd_on == false) {
 		ts_esd->esd_on = true;
 		schedule_delayed_work(&ts_esd->delayed_work, 2 * HZ);
-		dev_info(&ts->client->dev, "ESD on");
 	}
 	mutex_unlock(&ts_esd->mutex);
 }
@@ -2898,7 +2867,6 @@ void gtp_esd_off(struct goodix_ts_data *ts)
 	if (ts_esd->esd_on == true) {
 		ts_esd->esd_on = false;
 		cancel_delayed_work_sync(&ts_esd->delayed_work);
-		dev_info(&ts->client->dev, "ESD off");
 	}
 	mutex_unlock(&ts_esd->mutex);
 }
@@ -2929,7 +2897,6 @@ static void gtp_charger_updateconfig(struct goodix_ts_data *ts , s32 dir_update)
 		}
 	} else {						/* charger plugged out */
 		if (chr_pluggedin || dir_update) {
-			dev_info(&ts->client->dev, "discharging update normal cfg=====");
 			chr_cmd[2] = 7;
 			gtp_i2c_write(ts->client, chr_cmd, 3);
 			mdelay(1);
@@ -2974,7 +2941,6 @@ void gtp_charger_on(struct goodix_ts_data *ts)
 	if (ts_charger->charger_on == false) {
 		ts_charger->charger_on = true;
 		schedule_delayed_work(&ts_charger->delayed_work, 1 * HZ);
-		dev_info(&ts->client->dev, "Charger on");
 	}
 	mutex_unlock(&ts_charger->mutex);
 }
@@ -2989,7 +2955,6 @@ void gtp_charger_off(struct goodix_ts_data *ts)
 	if (ts_charger->charger_on == true) {
 		ts_charger->charger_on = false;
 		cancel_delayed_work_sync(&ts_charger->delayed_work);
-		dev_info(&ts->client->dev, "Charger  off");
 	}
 	mutex_unlock(&ts_charger->mutex);
 }

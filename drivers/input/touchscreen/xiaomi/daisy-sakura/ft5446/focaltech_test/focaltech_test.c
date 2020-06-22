@@ -1065,7 +1065,6 @@ int fts_tp_selftest_proc(void)
 {
 	int ret = 0;
 
-	FTS_TEST_INFO("%s:ENTER FUNC ---- %d\n", __func__, __LINE__);
 	tp_selftest = proc_create(FTS_PROC_TP_SELFTEST, 0444, NULL, &tp_selftest_ops);
 	if (tp_selftest == NULL) {
 		FTS_TEST_INFO("fts, create_proc_entry tp_selftest failed\n");

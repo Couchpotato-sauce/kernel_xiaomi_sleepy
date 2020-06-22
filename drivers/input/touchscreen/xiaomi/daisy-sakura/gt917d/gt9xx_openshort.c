@@ -767,7 +767,6 @@ int create_gtp_data_dump_proc(void)
 {
 	int ret = 0;
 
-	GTP_DEBUG("%s:ENTER FUNC ---- %d\n", __func__, __LINE__);
 	gtp_data_dump_proc = proc_create(GTP_TP_DATA_DUMP, 0444, NULL, &tp_data_dump_proc_fops);
 	if (gtp_data_dump_proc == NULL) {
 		GTP_DEBUG("fts, create_proc_entry tp_data_dump_proc failed\n");

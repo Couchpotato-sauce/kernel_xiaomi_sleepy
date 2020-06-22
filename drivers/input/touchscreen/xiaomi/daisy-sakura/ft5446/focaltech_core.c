@@ -1608,9 +1608,7 @@ static int fts_ts_pm_suspend(struct device *dev)
 	FTS_FUNC_ENTER();
 	if (lcm_ffbm_mode) {
 		fts_ts_suspend(dev);
-	} else {
-		FTS_INFO("We are not in ffbm mode\n");
-	}
+	} 
 	FTS_FUNC_EXIT();
 	return 0;
 }
@@ -1620,9 +1618,7 @@ static int fts_ts_pm_resume(struct device *dev)
 	FTS_FUNC_ENTER();
 	if (lcm_ffbm_mode) {
 		fts_ts_resume(dev);
-	} else {
-		FTS_INFO("We are not in ffbm mode\n");
-	}
+	} 
 	FTS_FUNC_EXIT();
 	return 0;
 }
@@ -1677,7 +1673,6 @@ static int fts_ts_suspend(struct device *dev)
 	ret = fts_i2c_write_reg(ts_data->client, FTS_REG_POWER_MODE, FTS_REG_POWER_MODE_SLEEP_VALUE);
 	if (ret < 0)
 		FTS_ERROR("set TP to sleep mode fail, ret=%d", ret);
-	printk("%s:EXIT FUNC ---- %d\n", __func__, __LINE__);
 #endif
 
 	ts_data->suspended = true;
