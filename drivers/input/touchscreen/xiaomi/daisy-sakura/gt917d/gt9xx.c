@@ -1723,7 +1723,7 @@ int gt_create_lockdown_proc(struct i2c_client *client, struct goodix_ts_data *ts
 void ctp_vendor_info(struct i2c_client *client, struct goodix_fw_info *gt_fw_info)
 {
 	struct goodix_fw_info *fw_info = gt_fw_info;
-	char temp[10];
+	char temp[15];
 
 	if (fw_info->sensor_id == 0) {
 	strcpy(tp_info_summary, "[Vendor]Biel(TP) + EBBG(LCD), [TP-IC]GT917D,[FW]Ver");
