@@ -598,8 +598,7 @@ static irqreturn_t fpc1020_irq_handler(int irq, void *handle)
 	dev_err(fpc1020->dev, "%s\n", __func__);  /* modified by zhongshengbin for fingerprint D1S-634  2018-03-04 */
 
 	if (atomic_read(&fpc1020->wakeup_enabled)) {
-		__pm_wakeup_event(&fpc1020->ttw_wl,
-					msecs_to_jiffies(FPC_TTW_HOLD_TIME));
+		__pm_wakeup_event(&fpc1020->ttw_wl, FPC_TTW_HOLD_TIME);
 	}
 
     /* added by zhongshengbin for fingerprint D1S-634 begin 2018-03-04 */
