@@ -173,6 +173,18 @@ struct ipa_mhi_client_ctx {
 static struct ipa_mhi_client_ctx *ipa_mhi_client_ctx;
 static DEFINE_MUTEX(mhi_client_general_mutex);
 
+static int ipa_mhi_set_lock_unlock(bool is_lock)	
+{	
+	IPA_MHI_DBG("entry\n");	
+	if (is_lock)	
+		mutex_lock(&mhi_client_general_mutex);	
+	else	
+		mutex_unlock(&mhi_client_general_mutex);	
+	IPA_MHI_DBG("exit\n");	
+	return 0;	
+}	
+
+
 static int ipa_mhi_read_write_host(enum ipa_mhi_dma_dir dir, void *dev_addr,
 	u64 host_addr, int size)
 {
