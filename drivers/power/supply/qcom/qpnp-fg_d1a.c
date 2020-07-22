@@ -7475,7 +7475,6 @@ static void fg_cancel_all_works(struct fg_chip *chip)
 static void fg_cleanup(struct fg_chip *chip)
 {
 	fg_cancel_all_works(chip);
-	power_supply_unregister(chip->bms_psy);
 	mutex_destroy(&chip->rslow_comp.lock);
 	mutex_destroy(&chip->rw_lock);
 	mutex_destroy(&chip->cyc_ctr.lock);
@@ -7847,6 +7846,7 @@ static const struct file_operations fg_memif_dfs_reg_fops = {
 	.write		= fg_memif_dfs_reg_write,
 };
 
+#ifdef CONFIG_DEBUG_FS
 /**
  * fg_dfs_create_fs: create debugfs file system.
  * @return pointer to root directory or NULL if failed to create fs
@@ -7878,6 +7878,7 @@ err_remove_fs:
 	debugfs_remove_recursive(root);
 	return NULL;
 }
+
 
 /**
  * fg_dfs_get_root: return a pointer to FG debugfs root directory.
@@ -7942,6 +7943,7 @@ err_remove_fs:
 	debugfs_remove_recursive(root);
 	return -ENOMEM;
 }
+#endif
 
 #define EXTERNAL_SENSE_OFFSET_REG	0x41C
 #define EXT_OFFSET_TRIM_REG		0xF8
@@ -8947,6 +8949,7 @@ static int fg_probe(struct platform_device *pdev)
 	 */
 	chip->batt_psy_name = "battery";
 
+#ifdef CONFIG_DEBUG_FS
 	if (chip->mem_base) {
 		rc = fg_dfs_create(chip);
 		if (rc < 0) {
@@ -8954,6 +8957,7 @@ static int fg_probe(struct platform_device *pdev)
 			goto power_supply_unregister;
 		}
 	}
+#endif
 
 	/* Fake temperature till the actual temperature is read */
 	chip->last_good_temp = 250;
@@ -8972,8 +8976,6 @@ static int fg_probe(struct platform_device *pdev)
 
 	return rc;
 
-power_supply_unregister:
-	power_supply_unregister(chip->bms_psy);
 cancel_work:
 	fg_cancel_all_works(chip);
 of_init_fail:
