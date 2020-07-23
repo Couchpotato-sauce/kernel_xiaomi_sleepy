@@ -79,7 +79,7 @@
 				pins = "gpio129";
 			};
 		};
-		/*fp gpio of gooid & fpc */
+		/*fp gpio of goodix & fpc */
 		goodix_spi_active: goodix_spi_active{
 			mux {
 				pins = "gpio16", "gpio17", "gpio18", "gpio19";
@@ -132,7 +132,7 @@
 		fpc_spi_active: fpc_spi_active {
 			mux {
 				pins = "gpio16", "gpio17", "gpio18", "gpio19";
-				function = "blsp_spi7";
+				function = "blsp_spi5";
 			};
 
 			config {
