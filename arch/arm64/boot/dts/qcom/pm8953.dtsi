@@ -392,6 +392,7 @@
 		polling-delay = <0>;
 		thermal-sensors = <&pm8953_tz>;
 		wake-capable-sensor;
+		disable-thermal-zone;
 
 		trips {
 			pm8953_trip0: pm8953-trip0 {
