@@ -168,6 +168,7 @@ enum pon_type {
 	PON_RESIN,
 	PON_CBLPWR,
 	PON_KPDPWR_RESIN,
+	PON_KEY_MAX,
 };
 
 struct qpnp_pon_config {
@@ -230,10 +231,10 @@ struct qpnp_pon {
 	bool			resin_shutdown_disable;
 	bool			ps_hold_hard_reset_disable;
 	bool			ps_hold_shutdown_disable;
-	bool			kpdpwr_dbc_enable;
+	bool			sw_dbc_enable;
 	bool                    support_twm_config;
 	bool			resin_pon_reset;
-	ktime_t			kpdpwr_last_release_time;
+	ktime_t			sw_dbc_last_release_time[PON_KEY_MAX];
 	struct notifier_block   pon_nb;
 	bool			legacy_hard_reset_offset;
 };
@@ -945,11 +946,11 @@ qpnp_pon_input_dispatch(struct qpnp_pon *pon, u32 pon_type)
 	if (!cfg->key_code)
 		return 0;
 
-	if (pon->kpdpwr_dbc_enable && cfg->pon_type == PON_KPDPWR) {
+	if (pon->sw_dbc_enable) {
 		elapsed_us = ktime_us_delta(ktime_get(),
-				pon->kpdpwr_last_release_time);
+				pon->sw_dbc_last_release_time[cfg->pon_type]);
 		if (elapsed_us < pon->dbc_time_us) {
-			pr_debug("Ignoring kpdpwr event - within debounce time\n");
+			pr_debug("Ignoring type %u event - within debounce time\n", pon_type);
 			return 0;
 		}
 	}
@@ -982,10 +983,8 @@ qpnp_pon_input_dispatch(struct qpnp_pon *pon, u32 pon_type)
 					cfg->key_code, pon_rt_sts);
 	key_status = pon_rt_sts & pon_rt_bit;
 
-	if (pon->kpdpwr_dbc_enable && cfg->pon_type == PON_KPDPWR) {
-		if (!key_status)
-			pon->kpdpwr_last_release_time = ktime_get();
-	}
+	if (pon->sw_dbc_enable && !key_status)
+		pon->sw_dbc_last_release_time[cfg->pon_type] = ktime_get();
 
 	/*
 	 * simulate press event in case release event occurred
@@ -2465,8 +2464,8 @@ static int qpnp_pon_probe(struct platform_device *pdev)
 		goto err_out;
 	}
 
-	pon->kpdpwr_dbc_enable = of_property_read_bool(pon->pdev->dev.of_node,
-					"qcom,kpdpwr-sw-debounce");
+	pon->sw_dbc_enable = of_property_read_bool(pon->pdev->dev.of_node,
+					"qcom,pon-sw-debounce");
 
 	rc = of_property_read_u32(pon->pdev->dev.of_node,
 				"qcom,warm-reset-poweroff-type",
