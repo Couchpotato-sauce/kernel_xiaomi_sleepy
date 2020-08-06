@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-/* Copyright (c) 2013-2018, 2020, The Linux Foundation. All rights reserved.
-=======
 /* Copyright (c) 2013-2017, The Linux Foundation. All rights reserved.
->>>>>>> c0dfc3dc9a80... camera_v2: checkout to LA.UM.7.6.r1-04500-89xx.0
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -792,7 +788,6 @@ static int msm_isp_buf_done(struct msm_isp_buf_mgr *buf_mgr,
 
 	if (MSM_ISP_BUFFER_SRC_HAL == BUF_SRC(bufq->stream_id)) {
 		if (state == MSM_ISP_BUFFER_STATE_DEQUEUED) {
-#endif
 			buf_info->state = MSM_ISP_BUFFER_STATE_DISPATCHED;
 			spin_unlock_irqrestore(&bufq->bufq_lock, flags);
 			buf_mgr->vb2_ops->buf_done(buf_info->vb2_v4l2_buf,
