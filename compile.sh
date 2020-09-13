@@ -68,6 +68,17 @@ else
     sleep 10
 fi
 
+# Fetch latest wireguard version if ran by Lacia
+wireguard() {
+    ./scripts/fetch-latest-wireguard.sh
+}
+
+if [ "$(whoami)" = "lacia" ] || [ "$(whoami)" = "lacia-chan" ]; then
+    wireguard
+else
+    sleep 10
+fi
+
 # Export and set some variables that will be used later
 CORES=$(grep -c ^processor /proc/cpuinfo)
 BUILD_START=$(date +"%s")
