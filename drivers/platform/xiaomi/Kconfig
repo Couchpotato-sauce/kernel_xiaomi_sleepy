@@ -1,0 +1,58 @@
+# Xiaomi configuration options
+
+config MACH_XIAOMI_MSM8953
+	bool "Xiaomi MSM8953 devices"
+	help
+	  Support for Xiaomi MSM8953 variants
+
+menu "Xiaomi MSM8953 board selection"
+
+config MACH_XIAOMI_DAISY
+        bool "xiaomi daisy board"
+        select MACH_XIAOMI_MSM8953
+        help
+          Support for Xiaomi Mi A2 Lite
+
+config MACH_XIAOMI_MIDO
+        bool "xiaomi mido board"
+        select MACH_XIAOMI_MSM8953
+        help
+          Support for Xiaomi Redmi Note 4
+
+config MACH_XIAOMI_ONC
+        bool "xiaomi onc board"
+        select MACH_XIAOMI_MSM8953
+        help
+          Support for Xiaomi Redmi Y3
+
+config MACH_XIAOMI_ROSY
+        bool "xiaomi rosy board"
+        select MACH_XIAOMI_MSM8953
+        help
+          Support for Xiaomi Redmi 5
+
+config MACH_XIAOMI_SAKURA
+        bool "xiaomi sakura board"
+        select MACH_XIAOMI_MSM8953
+        help
+          Support for Xiaomi Redmi 6 Pro
+
+config MACH_XIAOMI_TISSOT
+        bool "xiaomi tissot board"
+        select MACH_XIAOMI_MSM8953
+        help
+          Support for Xiaomi Mi A1
+
+config MACH_XIAOMI_VINCE
+        bool "xiaomi vince board"
+        select MACH_XIAOMI_MSM8953
+        help
+          Support for Xiaomi Redmi 5 Plus
+
+config MACH_XIAOMI_YSL
+        bool "xiaomi ysl board"
+        select MACH_XIAOMI_MSM8953
+        help
+          Support for Xiaomi Redmi S2
+
+endmenu
