@@ -843,6 +843,7 @@ endif
 
 ifeq ($(ld-name),lld)
 KBUILD_LDFLAGS += -O3
+LDFLAGS += -O3
 endif
 
 KBUILD_CFLAGS += $(call cc-disable-warning, unused-const-variable)
