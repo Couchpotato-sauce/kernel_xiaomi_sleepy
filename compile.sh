@@ -151,7 +151,7 @@ Commit: \`$COMMIT_POINT\`
 
 Changelog [Here!]($CHANGELOG)
 
-Kernel: \`Sleepy\`"
+Kernel: \`sleepy ~ but Paimon is emergency food\`"
 }
 
 if [ "$(whoami)" = "lacia" ] || [ "$(whoami)" = "lacia-chan" ]; then
