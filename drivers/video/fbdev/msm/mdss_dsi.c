@@ -45,6 +45,11 @@ static struct mdss_dsi_data *mdss_dsi_res;
 #define DSI_DISABLE_PC_LATENCY 100
 #define DSI_ENABLE_PC_LATENCY PM_QOS_DEFAULT_VALUE
 
+#ifdef CONFIG_ENABLE_PM_TP_SUSPEND_RESUME
+/*A flag to indicate ffbm mode or not*/
+bool lcm_ffbm_mode = 0;
+#endif
+
 static struct pm_qos_request mdss_dsi_pm_qos_request;
 
 void mdss_dump_dsi_debug_bus(u32 bus_dump_flag,
@@ -2946,6 +2951,12 @@ static struct device_node *mdss_dsi_find_panel_of_node(
 			 __func__, __LINE__);
 		goto end;
 	} else {
+		#ifdef CONFIG_ENABLE_PM_TP_SUSPEND_RESUME
+		lcm_ffbm_mode = strnstr(panel_cfg, "ffbm", len);
+		if (lcm_ffbm_mode){
+			pr_info("[ffbm] we are in ffbm mode now!\n");
+		}
+		#endif
 		/* check if any override parameters are set */
 		pinfo->sim_panel_mode = 0;
 		override_cfg = strnstr(panel_cfg, "#" OVERRIDE_CFG, len);
