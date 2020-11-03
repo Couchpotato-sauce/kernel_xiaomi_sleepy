@@ -1,0 +1,11 @@
+if MACH_XIAOMI_VINCE
+
+source "drivers/input/touchscreen/xiaomi/vince/nt36672/Kconfig"
+
+source "drivers/input/touchscreen/xiaomi/vince/td4310_e7/Kconfig"
+
+source "drivers/input/touchscreen/xiaomi/vince/td4310_lansi_e7/Kconfig"
+
+source "drivers/input/touchscreen/xiaomi/vince/vituralsar/Kconfig"
+
+endif

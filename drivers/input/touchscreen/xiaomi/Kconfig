@@ -1,0 +1,5 @@
+if MACH_XIAOMI_MSM8953
+
+source "drivers/input/touchscreen/xiaomi/vince/Kconfig"
+
+endif
