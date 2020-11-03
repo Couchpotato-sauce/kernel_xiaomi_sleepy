@@ -1,0 +1,16 @@
+#
+# Synaptics DSX touchscreen driver configuration
+#
+
+config TOUCHSCREEN_TD4310_E7
+	tristate "synaptics touchscreens"
+	depends on I2C
+	help
+	  Say Y here if you have a ist3038c touchscreen.
+	  Ft5x06 controllers are multi touch controllers which can
+	  report 5 touches at a time.
+
+	  If unsure, say N.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called ist3038c_ts.
