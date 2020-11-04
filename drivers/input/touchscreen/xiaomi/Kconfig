@@ -1,5 +1,6 @@
 if MACH_XIAOMI_MSM8953
 
+source "drivers/input/touchscreen/xiaomi/daisy-sakura/Kconfig"
 source "drivers/input/touchscreen/xiaomi/vince/Kconfig"
 
 endif

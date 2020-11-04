@@ -1,0 +1,13 @@
+if MACH_XIAOMI_DAISY
+
+source "drivers/input/touchscreen/xiaomi/daisy-sakura/ft5446/Kconfig"
+source "drivers/input/touchscreen/xiaomi/daisy-sakura/gt917d/Kconfig"
+
+endif
+
+if MACH_XIAOMI_SAKURA
+
+source "drivers/input/touchscreen/xiaomi/daisy-sakura/ft5446/Kconfig"
+source "drivers/input/touchscreen/xiaomi/daisy-sakura/gt917d/Kconfig"
+
+endif
