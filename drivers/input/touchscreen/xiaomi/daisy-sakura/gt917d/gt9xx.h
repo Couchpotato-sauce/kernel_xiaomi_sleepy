@@ -66,7 +66,7 @@
 #define GTP_DEBUG_ARRAY_ON    0
 #define GTP_DEBUG_FUNC_ON     1
 
-#define GTP_CHARGER_SWITCH       1           /*gexiantao@20180403*/
+#define GTP_CHARGER_SWITCH       0           /*gexiantao@20180403*/
 
 struct goodix_point_t {
 	int id;
