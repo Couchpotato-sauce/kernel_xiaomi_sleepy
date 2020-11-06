@@ -2070,7 +2070,9 @@ file_fail:
 	clear_bit(FW_UPDATE_RUNNING, &ts->flags);
 	gtp_work_control_enable(ts, true);
 	gtp_esd_on(ts);
+#if GTP_CHARGER_SWITCH
 	gtp_charger_on(ts);
+#endif
 	total_len = 100;
 	ts->force_update = false;
 
