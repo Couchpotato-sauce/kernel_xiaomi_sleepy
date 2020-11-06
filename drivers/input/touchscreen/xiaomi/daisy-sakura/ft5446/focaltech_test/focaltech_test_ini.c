@@ -714,7 +714,7 @@ int fts_test_get_ini_size(char *config_name)
 		return -EIO;
 	}
 
-	inode = pfile->f_dentry->d_inode;
+	inode = pfile->f_inode;
 	fsize = inode->i_size;
 	filp_close(pfile, NULL);
 
@@ -745,7 +745,7 @@ int fts_test_read_ini_data(char *config_name, char *config_buf)
 		return -EIO;
 	}
 
-	inode = pfile->f_dentry->d_inode;
+	inode = pfile->f_inode;
 	fsize = inode->i_size;
 	old_fs = get_fs();
 	set_fs(KERNEL_DS);
