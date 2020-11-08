@@ -1811,9 +1811,9 @@ unsigned char FT5X46_TestItem_WeakShortTest( bool *bTestResult )
 		if ((iMin_CG > fGShortResistance[i]) || (iDsen - iDoffset < 0)) { //<=0 ShortResistance = 0
 			iCount++;
 			if (i + 1 <= iMaxTx)
-				FTS_TEST_SAVE_INFO("\nTx%02d: %02d (k次),	", i + 1, fGShortResistance[i]);
+				FTS_TEST_SAVE_INFO("\nTx%02d: %02d (k times),	", i + 1, fGShortResistance[i]);
 			else
-				FTS_TEST_SAVE_INFO("\nRx%02d: %02d (k次),	", i + 1 - iMaxTx, fGShortResistance[i]);
+				FTS_TEST_SAVE_INFO("\nRx%02d: %02d (k times),	", i + 1 - iMaxTx, fGShortResistance[i]);
 			if (iCount % 10 == 0)
 				FTS_TEST_SAVE_INFO("\n\n");
 		}
@@ -1865,9 +1865,9 @@ unsigned char FT5X46_TestItem_WeakShortTest( bool *bTestResult )
 		if ( fMShortResistance[i] <= 0  || fMShortResistance[i] < iMin_CC ) {
 			iCount++;
 			if (i + 1 <= iMaxTx)
-				FTS_TEST_SAVE_INFO("\nTx%02d: %02d(k次),	", i + 1, fMShortResistance[i]);
+				FTS_TEST_SAVE_INFO("\nTx%02d: %02d(k times),	", i + 1, fMShortResistance[i]);
 			else
-				FTS_TEST_SAVE_INFO("\nRx%02d: %02d(k次),	", i + 1 - iMaxTx, fMShortResistance[i]);
+				FTS_TEST_SAVE_INFO("\nRx%02d: %02d(k times),	", i + 1 - iMaxTx, fMShortResistance[i]);
 
 			if (iCount % 10 == 0)
 				FTS_TEST_SAVE_INFO("\n\n");
