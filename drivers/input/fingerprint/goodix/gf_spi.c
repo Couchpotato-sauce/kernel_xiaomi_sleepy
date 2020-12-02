@@ -319,14 +319,6 @@ static void nav_event_input(struct gf_dev *gf_dev, gf_nav_event_t nav_event)
 	}
 }
 
-/* add by zhongshengbin for fingerprint D1S-634 begin 2018-03-04 */
-static void notification_work(struct work_struct *work)
-{
-	mdss_prim_panel_fb_unblank(FP_UNLOCK_REJECTION_TIMEOUT);
-	pr_debug("unblank\n");
-}
-/* add by zhongshengbin for fingerprint D1S-634 end 2018-03-04 */
-
 static irqreturn_t gf_irq(int irq, void *handle)
 {
 #if defined(GF_NETLINK_ENABLE)
@@ -741,7 +733,6 @@ static int gf_probe(struct platform_device *pdev)
 
     /* add by zhongshengbin for fingerprint D1S-634 begin 2018-03-04 */
 	gf_dev->wait_finger_down = false;
-	INIT_WORK(&gf_dev->work, notification_work);
 	/* add by zhongshengbin for fingerprint D1S-634 end 2018-03-04 */
 
 	/* If we can allocate a minor number, hook up this device.
