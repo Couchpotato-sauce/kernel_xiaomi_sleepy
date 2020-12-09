@@ -613,6 +613,9 @@ static int cpr4_apss_read_fuse_data(struct cpr3_regulator *vreg)
 
 	rc = cpr3_read_fuse_param(base, msm8953_apss_speed_bin_param,
 				&fuse->speed_bin);
+	#ifdef CONFIG_MACH_XIAOMI_CLK_MOD
+	fuse->speed_bin = 7;
+	#endif
 	if (rc) {
 		cpr3_err(vreg, "Unable to read speed bin fuse, rc=%d\n", rc);
 		return rc;
@@ -620,6 +623,9 @@ static int cpr4_apss_read_fuse_data(struct cpr3_regulator *vreg)
 
 	rc = cpr3_read_fuse_param(base, msm8953_cpr_fusing_rev_param,
 				&fuse->cpr_fusing_rev);
+	#ifdef CONFIG_MACH_XIAOMI_CLK_MOD
+	fuse->cpr_fusing_rev = 3;
+	#endif
 	if (rc) {
 		cpr3_err(vreg, "Unable to read CPR fusing revision fuse, rc=%d\n",
 			rc);
@@ -628,6 +634,9 @@ static int cpr4_apss_read_fuse_data(struct cpr3_regulator *vreg)
 
 	rc = cpr3_read_fuse_param(base, msm8953_apss_foundry_id_param,
 				&fuse->foundry_id);
+	#ifdef CONFIG_MACH_XIAOMI_CLK_MOD
+	fuse->foundry_id = 1;
+	#endif
 	if (rc) {
 		cpr3_err(vreg, "Unable to read foundry id fuse, rc=%d\n", rc);
 		return rc;
