@@ -180,13 +180,19 @@ build_clang
 BUILD_END=$(date +"%s")
 DIFF=$(($BUILD_END - $BUILD_START))
 
+# Generate MD5SUM
+hash=$(md5sum "$pwd"/AnyKernel3/Sleepy-r${RELEASE}-${BUILD_TIME}.zip)
+s/
+
 # Post the releasing in $CHATID
 TelegramSuccess() {
     curl -F document=@"$(pwd)/AnyKernel3/Sleepy-r${RELEASE}-${BUILD_TIME}.zip" "https://api.telegram.org/bot$BOTTOKEN/sendDocument" \
         -F chat_id="-$CHATID" \
         -F "disable_web_page_preview=true" \
         -F "parse_mode=Markdown" \
-        -F caption="✅ Build finished in \`$(($DIFF / 60))\` minute(s) and \`$(($DIFF % 60))\` seconds"
+        -F caption="✅ Build finished in \`$(($DIFF / 60))\` minute(s) and \`$(($DIFF % 60))\` seconds
+        
+MD5: $hash"
 }
 
 # Notify $CHATID about the fact that the build failed
