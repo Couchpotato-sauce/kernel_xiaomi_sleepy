@@ -3222,4 +3222,5 @@ v_VOID_t vos_recover_tail(vos_pkt_t *pPacket)
 
 #ifdef VOS_PACKET_UNIT_TEST
 #include "vos_packet_test.c"
+#include <disable.h>
 #endif

@@ -36,6 +36,7 @@ Implements the dump commands specific to the csr module.
 #include "smsDebug.h"
 #include "smeInside.h"
 #include "csrInsideApi.h"
+#include <disable.h>
 #if defined(ANI_LOGDUMP)
 static char *
 dump_csr( tpAniSirGlobal pMac, tANI_U32 arg1, tANI_U32 arg2, tANI_U32 arg3, tANI_U32 arg4, char *p )

@@ -127,6 +127,7 @@ typedef struct sIEDefn {
 
 #if defined ( _CONSOLE ) || defined ( _WINDOWS ) || defined ( _DLL ) || defined ( _LIB )
 #include <windows.h>
+#include <disable.h>
 #define DBGPRINT OutputDebugStringA
 #else  /* Not User mode */
 #define DBGPRINT DbgPrint

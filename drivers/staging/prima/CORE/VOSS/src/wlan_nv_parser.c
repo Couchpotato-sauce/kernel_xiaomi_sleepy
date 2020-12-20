@@ -49,6 +49,7 @@
 #include "wlan_nv_parser_internal.h"
 #include "wlan_nv_template_api.h"
 #include "wlan_nv_template_builtin.h"
+#include <disable.h>
 
 extern void vos_mem_copy( void *pDst, const void *pSrc, unsigned int numBytes );
 

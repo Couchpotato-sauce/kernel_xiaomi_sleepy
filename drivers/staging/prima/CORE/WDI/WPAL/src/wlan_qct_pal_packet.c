@@ -48,6 +48,7 @@
 #include <linux/skbuff.h>
 #include "dma-mapping.h"
 #include <linux/wcnss_wlan.h>
+#include <disable.h>
 
 /*Per spec definition*/
 #define WPAL_ETHERNET_PAKCET_HEADER_SIZE     14

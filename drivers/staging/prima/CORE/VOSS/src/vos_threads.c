@@ -48,6 +48,7 @@
 #if (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 14, 0))
 #include <linux/sched/signal.h>
 #endif
+#include <disable.h>
 
 /*-------------------------------------------------------------------------- 
   Preprocessor definitions and constants

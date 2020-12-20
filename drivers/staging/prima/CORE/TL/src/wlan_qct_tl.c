@@ -154,6 +154,7 @@
 #include <wlan_qct_pal_status.h>
 #include <wlan_qct_pal_device.h> // wpalReadRegister
 #endif
+#include <disable.h>
 
 /*----------------------------------------------------------------------------
  * Preprocessor Definitions and Constants

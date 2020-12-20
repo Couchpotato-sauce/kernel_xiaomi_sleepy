@@ -45,6 +45,7 @@
 
 #include "vos_diag_core_log.h"
 #include "vos_diag_core_event.h"
+#include <disable.h>
 
 /* ---------------------------------------------------------------------------
     \fn oemData_OemDataReqOpen

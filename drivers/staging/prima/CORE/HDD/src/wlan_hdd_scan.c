@@ -68,6 +68,7 @@
 #include <linux/wireless.h>
 #include <net/cfg80211.h>
 #include <vos_sched.h>
+#include <disable.h>
 
 #define WEXT_CSCAN_HEADER               "CSCAN S\x01\x00\x00S\x00"
 #define WEXT_CSCAN_HEADER_SIZE          12

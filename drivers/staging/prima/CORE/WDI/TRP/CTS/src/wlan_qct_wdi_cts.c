@@ -99,6 +99,8 @@
 #include <linux/wcnss_wlan.h>
 #endif
 
+#include <disable.h>
+
 /* Global context for CTS handle, it is required to keep this 
  * transport open during SSR shutdown */
 static WCTS_HandleType gwctsHandle;

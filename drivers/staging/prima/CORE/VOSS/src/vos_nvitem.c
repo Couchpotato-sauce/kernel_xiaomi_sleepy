@@ -55,6 +55,7 @@
 #include <net/cfg80211.h>
 #include <linux/firmware.h>
 #include <linux/vmalloc.h>
+#include <disable.h>
 
 #if (LINUX_VERSION_CODE < KERNEL_VERSION(3,9,0))
 #define IEEE80211_CHAN_NO_80MHZ		1<<7

@@ -3573,6 +3573,7 @@ void limProcessSmeGetAssocSTAsInfo(tpAniSirGlobal pMac, tANI_U32 *pMsgBuf)
     tSap_Event              sapEvent;
     tpWLAN_SAPEventCB       pSapEventCallback = NULL;
     tpSap_AssocMacAddr      pAssocStasTemp = NULL;// #include "sapApi.h"
+#include <disable.h>
     tANI_U8                 sessionId = CSR_SESSION_ID_INVALID;
     tANI_U8                 assocId = 0;
     tANI_U8                 staCount = 0;

@@ -96,6 +96,7 @@
 * ----------------------------------------------------------------------------*/
 #include "wlan_hdd_power.h"
 #include "wlan_hdd_packet_filtering.h"
+#include <disable.h>
 
 #define HDD_SSR_BRING_UP_TIME 180000
 #define NS_DEFAULT_SLOT_INDEX 4

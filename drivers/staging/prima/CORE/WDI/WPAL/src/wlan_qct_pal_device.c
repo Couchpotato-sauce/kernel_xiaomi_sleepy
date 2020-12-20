@@ -75,6 +75,7 @@
 #include "wlan_hdd_main.h"
 #include "linux/wcnss_wlan.h"
 #include <linux/ratelimit.h>
+#include <disable.h>
 
 /*----------------------------------------------------------------------------
  * Preprocessor Definitions and Constants

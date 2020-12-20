@@ -47,6 +47,7 @@
 #include "limUtils.h"
 #include "limSecurityUtils.h"
 #include "limSession.h"
+#include <disable.h>
 
 
 #define LIM_SEED_LENGTH 16

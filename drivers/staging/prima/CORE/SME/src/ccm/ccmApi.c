@@ -32,6 +32,7 @@
 #include "cfgApi.h"
 #include "ccmApi.h"
 #include "logDump.h"
+#include <disable.h>
 
 //#define CCM_DEBUG
 #undef CCM_DEBUG

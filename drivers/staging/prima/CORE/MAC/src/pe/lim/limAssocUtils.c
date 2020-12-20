@@ -60,6 +60,7 @@
 
 #include "vos_types.h"
 #include "wlan_qct_wda.h"
+#include <disable.h>
 
 /*
  * fill up the rate info properly based on what is actually supported by the peer

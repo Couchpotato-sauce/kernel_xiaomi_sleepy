@@ -52,6 +52,7 @@
 #include <linux/wcnss_wlan.h>
 #else
 #include <wcnss_wlan.h>
+#include <disable.h>
 #endif // ANI_BUS_TYP_PLATFORM
 
 /*----------------------------------------------------------------------------

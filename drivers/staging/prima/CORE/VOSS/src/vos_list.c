@@ -43,6 +43,7 @@
   ----------------------------------------------------------------------------*/
 #include <vos_list.h>
 #include <vos_trace.h>
+#include <disable.h>
 
 /**-----------------------------------------------------------------------------
   Preprocessor definitions and constants

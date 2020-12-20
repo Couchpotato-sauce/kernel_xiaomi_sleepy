@@ -56,6 +56,7 @@
 #include "wlan_qct_tl.h"
 #include "wlan_qct_wda.h"
 #include "vos_trace.h"
+#include <disable.h>
 
 #ifdef TRACE_RECORD
 

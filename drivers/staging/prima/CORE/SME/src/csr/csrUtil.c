@@ -47,6 +47,7 @@
 #if defined(FEATURE_WLAN_ESE) && !defined(FEATURE_WLAN_ESE_UPLOAD)
 #include "vos_utils.h"
 #include "csrEse.h"
+#include <disable.h>
 #endif /* FEATURE_WLAN_ESE && !FEATURE_WLAN_ESE_UPLOAD*/
 tANI_U8 csrWpaOui[][ CSR_WPA_OUI_SIZE ] = {
     { 0x00, 0x50, 0xf2, 0x00 },

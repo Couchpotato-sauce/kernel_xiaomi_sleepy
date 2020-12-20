@@ -59,6 +59,7 @@ postPTTMsgApi(tpAniSirGlobal pMac, tSirMsgQ *pMsg);
 
 #include "vos_types.h"
 #include "vos_packet.h"
+#include <disable.h>
 
 // ---------------------------------------------------------------------------
 /**

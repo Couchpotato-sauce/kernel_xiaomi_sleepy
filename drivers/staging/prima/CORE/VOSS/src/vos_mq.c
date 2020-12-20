@@ -44,6 +44,7 @@
 #include <vos_mq.h>
 #include "vos_sched.h"
 #include <vos_api.h>
+#include <disable.h>
 
 /*-------------------------------------------------------------------------- 
   Preprocessor definitions and constants

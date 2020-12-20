@@ -62,6 +62,7 @@ when           who        what, where, why
  * Include Files
  * -------------------------------------------------------------------------*/
 #include "wlan_qct_dxe_i.h"
+#include <disable.h>
 
 /*----------------------------------------------------------------------------
  * Preprocessor Definitions and Constants

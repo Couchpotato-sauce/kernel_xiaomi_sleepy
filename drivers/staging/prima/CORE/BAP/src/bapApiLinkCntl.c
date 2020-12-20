@@ -74,6 +74,7 @@
 #include "bapApi.h" 
 #include "bapInternal.h" 
 #include "btampFsm.h"
+#include <disable.h>
 
 //#define BAP_DEBUG
 /*----------------------------------------------------------------------------

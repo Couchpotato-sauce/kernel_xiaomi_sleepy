@@ -61,6 +61,7 @@
 #include <linux/kthread.h>
 #include <linux/wcnss_wlan.h>
 #include "wlan_qct_pal_device.h"
+#include <disable.h>
 
 /*---------------------------------------------------------------------------
  * Preprocessor Definitions and Constants

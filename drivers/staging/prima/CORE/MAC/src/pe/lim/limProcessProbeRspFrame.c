@@ -51,6 +51,7 @@
 #include "limSendMessages.h"
 
 #include "parserApi.h"
+#include <disable.h>
 
 tSirRetStatus
 limValidateIEInformationInProbeRspFrame (tpAniSirGlobal pMac,

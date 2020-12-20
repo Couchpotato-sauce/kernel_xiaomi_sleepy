@@ -67,6 +67,7 @@
 #include "vos_utils.h"
 #include <wlan_hdd_wext.h>
 #include "sapInternal.h"
+#include <disable.h>
 
 #if defined CFG80211_ROAMED_API_UNIFIED || \
 	(LINUX_VERSION_CODE >= KERNEL_VERSION(4, 12, 0))

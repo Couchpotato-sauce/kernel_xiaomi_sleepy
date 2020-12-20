@@ -61,6 +61,7 @@
 #endif
 
 #include "wlan_qct_wda.h"
+#include <disable.h>
 
 #define IS_BROADCAST_MAC(x) (((x[0] & x[1] & x[2] & x[3] & x[4] & x[5]) == 0xff) ? 1 : 0)
 ////////////////////////////////////////////////////////////////////////

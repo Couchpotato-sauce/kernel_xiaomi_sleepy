@@ -77,6 +77,7 @@
 #include "vos_list.h"
 #include "vos_lock.h"
 #include "tlDebug.h"
+#include <disable.h>
 /*----------------------------------------------------------------------------
  * Preprocessor Definitions and Constants
  * -------------------------------------------------------------------------*/

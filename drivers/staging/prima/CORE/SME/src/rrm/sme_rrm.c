@@ -57,6 +57,7 @@
 
 #if defined(FEATURE_WLAN_ESE) && !defined(FEATURE_WLAN_ESE_UPLOAD)
 #include "csrEse.h"
+#include <disable.h>
 #endif
 
 /* Roam score for a neighbor AP will be calculated based on the below definitions.

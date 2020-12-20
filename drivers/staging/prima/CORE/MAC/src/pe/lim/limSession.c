@@ -46,6 +46,7 @@
 #include "limUtils.h"
 #if defined(FEATURE_WLAN_ESE) && !defined(FEATURE_WLAN_ESE_UPLOAD)
 #include "eseApi.h"
+#include <disable.h>
 #endif
 
 /*--------------------------------------------------------------------------

@@ -49,6 +49,7 @@
 #include "wlan_qct_wda.h"
 #include "limSessionUtils.h"
 #include "csrInsideApi.h"
+#include <disable.h>
 
 extern void pmcReleaseCommand( tpAniSirGlobal pMac, tSmeCmd *pCommand );
 

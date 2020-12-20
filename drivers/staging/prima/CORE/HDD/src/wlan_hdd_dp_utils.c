@@ -39,6 +39,7 @@
   Include files
   ----------------------------------------------------------------------------*/
 #include <wlan_hdd_dp_utils.h>
+#include <disable.h>
 
 /**-----------------------------------------------------------------------------
   Preprocessor definitions and constants

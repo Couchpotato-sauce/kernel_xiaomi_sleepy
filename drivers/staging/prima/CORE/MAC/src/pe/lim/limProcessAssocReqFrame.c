@@ -57,6 +57,7 @@
 
 
 #include "vos_types.h"
+#include <disable.h>
 
 #define RSN_CAP_MFP_ENABLED     0x80
 

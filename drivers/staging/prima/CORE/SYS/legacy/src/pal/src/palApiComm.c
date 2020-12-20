@@ -31,6 +31,7 @@
 
 #include <sirParams.h>  // needed for tSirMbMsg
 #include "wlan_qct_wda.h"
+#include <disable.h>
 
 #ifndef FEATURE_WLAN_PAL_MEM_DISABLE
 

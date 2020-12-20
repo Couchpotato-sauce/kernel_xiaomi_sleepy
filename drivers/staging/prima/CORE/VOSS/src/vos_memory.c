@@ -66,6 +66,7 @@
 
 #ifdef MEMORY_DEBUG
 #include "wlan_hdd_dp_utils.h"
+#include <disable.h>
 
 hdd_list_t vosMemList;
 
