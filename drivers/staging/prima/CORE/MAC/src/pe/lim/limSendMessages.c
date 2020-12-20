@@ -42,6 +42,7 @@
 #include "limTrace.h"
 #ifdef FEATURE_WLAN_DIAG_SUPPORT_LIM //FEATURE_WLAN_DIAG_SUPPORT
 #include "vos_diag_core_log.h"
+#include <disable.h>
 #endif //FEATURE_WLAN_DIAG_SUPPORT 
 /* When beacon filtering is enabled, firmware will
  * analyze the selected beacons received during BMPS,

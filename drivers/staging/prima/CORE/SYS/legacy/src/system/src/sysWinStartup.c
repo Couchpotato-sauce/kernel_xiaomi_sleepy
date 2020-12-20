@@ -42,6 +42,7 @@
 #include "sysEntryFunc.h"
 #include "sysStartup.h"
 #include "cfgApi.h"
+#include <disable.h>
 
 // Routine used to retrieve the Winwrapper context pointer from the pMac structure
 extern tpAniSirTxWrapper sysGetTxWrapperContext(void *);

@@ -57,6 +57,7 @@
 
 
 #include "vos_types.h"
+#include <disable.h>
 /**
  * limConvertSupportedChannels
  *

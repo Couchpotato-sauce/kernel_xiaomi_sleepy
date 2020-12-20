@@ -67,6 +67,7 @@
 #include <vos_sched.h>
 #include "sme_Api.h"
 #include "sapInternal.h"
+#include <disable.h>
 // change logging behavior based upon debug flag
 #ifdef HDD_WMM_DEBUG
 #define WMM_TRACE_LEVEL_FATAL      VOS_TRACE_LEVEL_FATAL

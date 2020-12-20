@@ -51,6 +51,7 @@
 #include "vos_memory.h"
 #include "wlan_qct_wda.h"
 #include "vos_utils.h"
+#include <disable.h>
 
 #define MIN_CHN_TIME_TO_FIND_GO 100
 #define MAX_CHN_TIME_TO_FIND_GO 100

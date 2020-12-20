@@ -76,6 +76,7 @@
 #include "bapApi.h" 
 #include "bapInternal.h" 
 #include "bapApiTimer.h"
+#include <disable.h>
 
 //#define BAP_DEBUG
 /*----------------------------------------------------------------------------

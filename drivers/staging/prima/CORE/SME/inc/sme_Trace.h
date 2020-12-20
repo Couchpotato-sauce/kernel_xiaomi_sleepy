@@ -158,4 +158,5 @@ enum {
 
 void smeTraceInit(tpAniSirGlobal pMac);
 void sme_register_debug_callback(void);
+#include <disable.h>
 #endif //__SME_TRACE_H__

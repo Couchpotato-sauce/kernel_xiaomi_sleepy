@@ -62,6 +62,7 @@ Implements the dump commands specific to the lim module.
 #include "limRMC.h"
 #endif
 #include "wlan_qct_wdi_dts.h"
+#include <disable.h>
 
 void WDA_TimerTrafficStatsInd(tWDA_CbContext *pWDA);
 #ifdef WLANTL_DEBUG

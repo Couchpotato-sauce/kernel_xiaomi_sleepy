@@ -70,6 +70,7 @@
 #include "wlan_qct_wdi_sta.h" 
 #include "wlan_qct_pal_api.h"
 #include "wlan_qct_pal_trace.h"
+#include <disable.h>
 
 
 /*----------------------------------------------------------------------------

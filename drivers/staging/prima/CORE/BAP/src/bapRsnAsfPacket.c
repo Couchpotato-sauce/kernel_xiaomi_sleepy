@@ -45,6 +45,7 @@
 #include <bapRsnErrors.h>
 #include "vos_memory.h"
 #include "vos_packet.h"
+#include <disable.h>
 
 /*
  * Allocate one more than required because the last bytes is waste. We

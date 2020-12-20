@@ -22,6 +22,7 @@
 #include "wlan_hdd_dp_utils.h"
 #include "vos_event.h"
 #include "vos_memory.h"
+#include <disable.h>
 
 /* arbitrary value */
 #define MAX_NUM_REQUESTS 20

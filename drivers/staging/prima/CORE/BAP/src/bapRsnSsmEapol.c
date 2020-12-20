@@ -46,6 +46,7 @@
 #include "vos_memory.h"
 
 //#include "aniSsmUtils.h"
+#include <disable.h>
 
 
 //TODO: Put these in an array after EAPOL_TYPE is made an enum

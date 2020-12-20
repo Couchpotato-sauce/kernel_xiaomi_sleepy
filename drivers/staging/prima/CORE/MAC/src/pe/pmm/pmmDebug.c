@@ -38,6 +38,7 @@
 
 #include "vos_trace.h"
 #include "pmmDebug.h"
+#include <disable.h>
 #define LOG_SIZE 256
 
 void pmmLog(tpAniSirGlobal pMac, tANI_U32 loglevel, const char *pString, ...)

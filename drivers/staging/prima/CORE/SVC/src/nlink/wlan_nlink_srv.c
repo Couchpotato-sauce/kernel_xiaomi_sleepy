@@ -43,6 +43,7 @@
 #include <wlan_nlink_srv.h>
 #include <vos_trace.h>
 #include "vos_memory.h"
+#include <disable.h>
 
 //Global variables
 static DEFINE_MUTEX(nl_srv_sem);

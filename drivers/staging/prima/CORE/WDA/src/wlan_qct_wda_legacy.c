@@ -50,6 +50,7 @@
 #include "pmmApi.h"
 #include "cfgApi.h"
 #include "wlan_qct_wda_debug.h"
+#include <disable.h>
 
 /* Locally used Defines */
 

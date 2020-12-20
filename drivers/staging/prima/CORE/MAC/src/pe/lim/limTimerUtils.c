@@ -41,6 +41,7 @@
 #include "limSecurityUtils.h"
 #include "pmmApi.h"
 #include "limApi.h"
+#include <disable.h>
 
 // default value 5000 ms for background scan period when it is disabled
 #define LIM_BACKGROUND_SCAN_PERIOD_DEFAULT_MS    5000

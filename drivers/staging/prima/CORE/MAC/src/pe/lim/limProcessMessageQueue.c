@@ -82,6 +82,7 @@
 #include "vos_types.h"
 #include "vos_packet.h"
 #include "vos_memory.h"
+#include <disable.h>
 
 /* This value corresponds to 500 ms */
 #define MAX_PROBEREQ_TIME 50

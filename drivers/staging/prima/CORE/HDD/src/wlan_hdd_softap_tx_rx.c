@@ -59,6 +59,7 @@
 #include "sapInternal.h"
 #include  "wlan_hdd_trace.h"
 #include "vos_diag_core_event.h"
+#include <disable.h>
 /*--------------------------------------------------------------------------- 
   Preprocessor definitions and constants
   -------------------------------------------------------------------------*/ 

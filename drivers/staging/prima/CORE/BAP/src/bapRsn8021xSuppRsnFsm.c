@@ -45,6 +45,7 @@
 #include "vos_utils.h"
 #include "bapRsnTxRx.h"
 #include "btampFsm.h"
+#include <disable.h>
 
 // The different states that this FSM transitions through
 #define INITIALIZE           0

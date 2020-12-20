@@ -79,6 +79,7 @@
 #include <net/bluetooth/hci_core.h>
 
 #include <wlan_hdd_misc.h>
+#include <disable.h>
 /*----------------------------------------------------------------------------
  * Preprocessor Definitions and Constants
  * -------------------------------------------------------------------------*/

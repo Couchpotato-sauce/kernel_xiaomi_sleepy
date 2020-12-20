@@ -55,6 +55,7 @@
 #include <mach/subsystem_restart.h>
 #endif
 #include <linux/wcnss_wlan.h>
+#include <disable.h>
 
 
 #define WPAL_GET_NDIS_HANDLE(p)  ( ((tPalContext *)(p))->devHandle )

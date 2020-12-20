@@ -36,6 +36,7 @@
 #include "csr_roam_mbb.h"
 #include "csrInternal.h"
 #include "wlan_qct_wda.h"
+#include <disable.h>
 
 eHalStatus csr_register_roaming_mbb_callback(tpAniSirGlobal mac);
 

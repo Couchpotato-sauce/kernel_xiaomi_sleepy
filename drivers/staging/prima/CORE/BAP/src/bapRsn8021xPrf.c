@@ -47,6 +47,7 @@
 #include "bapRsn8021xPrf.h"
 #include "bapRsnErrors.h"
 //#include "ani8021xUtils.h"
+#include <disable.h>
 
 #define AAG_PTK_PRF_ADD_PARAM 159
 #define AAG_PTK_PRF_DIV_PARAM 160

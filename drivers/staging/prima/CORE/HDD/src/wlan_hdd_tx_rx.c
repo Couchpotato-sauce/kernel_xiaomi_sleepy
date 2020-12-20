@@ -65,6 +65,7 @@
 #include  "sapInternal.h"
 #include  "wlan_hdd_trace.h"
 #include  "wlan_qct_wda.h"
+#include <disable.h>
 /*--------------------------------------------------------------------------- 
   Preprocessor definitions and constants
   -------------------------------------------------------------------------*/ 

@@ -64,6 +64,7 @@
 
 #include "aniSsmAesKeyWrap.h"
 #include "aniSsmUtils.h"
+#include <disable.h>
 #endif
 
 #define ANI_SSM_AES_KEY_WRAP_IC_SIZE    ANI_SSM_AES_KEY_WRAP_BLOCK_SIZE

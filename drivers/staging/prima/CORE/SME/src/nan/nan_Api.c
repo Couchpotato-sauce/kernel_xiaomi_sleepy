@@ -31,6 +31,7 @@
 #include "smeInside.h"
 #include "limApi.h"
 #include "cfgApi.h"
+#include <disable.h>
 
 /******************************************************************************
  * Function: sme_NanRegisterCallback

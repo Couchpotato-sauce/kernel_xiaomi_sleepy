@@ -84,6 +84,7 @@
 #include "bap_hdd_main.h"
 #endif //WLAN_BTAMP_FEATURE
 #include "wlan_qct_wdi_cts.h"
+#include <disable.h>
 
 /*---------------------------------------------------------------------------
  * Preprocessor Definitions and Constants
@@ -1846,6 +1847,7 @@ VOS_STATUS __vos_fatal_event_logs_req( uint32_t is_fatal,
        return VOS_STATUS_E_FAILURE;
     }
 
+#ifdef WLAN_LOGGING_SOCK_SVC_ENABLE
     if(!pHddCtx->cfg_ini->wlanLoggingEnable)
     {
 #endif
@@ -1854,6 +1856,7 @@ VOS_STATUS __vos_fatal_event_logs_req( uint32_t is_fatal,
         return VOS_STATUS_E_FAILURE;
 #ifdef WLAN_LOGGING_SOCK_SVC_ENABLE
     }
+#endif
 
     if (!pHddCtx->cfg_ini->enableFatalEvent || !pHddCtx->is_fatal_event_log_sup)
     {
@@ -3600,6 +3603,7 @@ rateidx_to_rate_bw_preamble_sgi   rateidx_to_rate_bw_preamble_sgi_table[] =
 { 4333, PREAMBLE_VHT, S_BW80, 1},
 };
 
+#if 0
 void get_rate_and_MCS(per_packet_stats *stats, uint32 rateindex)
 {
     rateidx_to_rate_bw_preamble_sgi *ratetbl;
@@ -3667,6 +3671,7 @@ void get_rate_and_MCS(per_packet_stats *stats, uint32 rateindex)
     stats->MCS.bw = ratetbl->bw;
     stats->MCS.short_gi = ratetbl->short_gi;
 }
+#endif
 
 v_U16_t vos_get_rate_from_rateidx(uint32 rateindex)
 {
@@ -3707,6 +3712,7 @@ bool vos_is_wlan_logging_enabled(void)
        return false;
     }
 
+#ifdef WLAN_LOGGING_SOCK_SVC_ENABLE
     if (!hdd_ctx->cfg_ini->wlanLoggingEnable)
     {
 #endif
@@ -3714,6 +3720,7 @@ bool vos_is_wlan_logging_enabled(void)
        return false;
 #ifdef WLAN_LOGGING_SOCK_SVC_ENABLE
     }
+#endif
 
     return true;
 #endif

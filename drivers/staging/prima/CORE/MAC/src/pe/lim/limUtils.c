@@ -62,6 +62,7 @@
 #ifdef SAP_AUTH_OFFLOAD
 #include "limAssocUtils.h"
 #endif
+#include <disable.h>
 
 /* Static global used to mark situations where pMac->lim.gLimTriggerBackgroundScanDuringQuietBss is SET
  * and limTriggerBackgroundScanDuringQuietBss() returned failure.  In this case, we will stop data

@@ -60,6 +60,7 @@
 #include <linux/spinlock.h>
 #include <linux/kthread.h>
 #include <linux/wcnss_wlan.h>
+#include <disable.h>
 
 /*---------------------------------------------------------------------------
  * Preprocessor Definitions and Constants

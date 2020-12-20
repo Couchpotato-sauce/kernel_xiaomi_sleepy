@@ -81,6 +81,7 @@
 #include "limAssocUtils.h"
 #include "dphHashTable.h"
 #include "wlan_qct_wda.h"
+#include <disable.h>
 
 /* define NO_PAD_TDLS_MIN_8023_SIZE to NOT padding: See CR#447630
 There was IOT issue with cisco 1252 open mode, where it pads

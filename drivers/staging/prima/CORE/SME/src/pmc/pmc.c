@@ -48,6 +48,7 @@
 #include "wlan_qct_wda.h"
 #include "wlan_ps_wow_diag.h"
 #include "csrInsideApi.h"
+#include <disable.h>
 
 static void pmcProcessDeferredMsg( tpAniSirGlobal pMac );
 

@@ -44,6 +44,7 @@
 #include "limTimerUtils.h"
 #include "limSession.h"
 #include "limSessionUtils.h"
+#include <disable.h>
 
 #define LIM_START_PEER_IDX   1
 

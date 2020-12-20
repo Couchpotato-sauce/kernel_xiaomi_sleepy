@@ -39,6 +39,7 @@
 #include "vos_trace.h"
 
 #include "vos_timer.h"
+#include <disable.h>
 
 ANI_INLINE_FUNCTION void csrListInit(tListElem *pList)
 {

@@ -40,6 +40,7 @@
 #include "wlan_qct_pal_api.h"
 #include "wlan_qct_pal_trace.h"
 #include "vos_mq.h"
+#include <disable.h>
 
 
 
