@@ -692,6 +692,11 @@ EXTRA_CFLAGS += $(call cc-disable-warning, maybe-uninitialized)
 EXTRA_CFLAGS += $(call cc-disable-warning, enum-conversion)
 EXTRA_CFLAGS += $(call cc-option, -Wframe-larger-than=2048)
 
+# Silence Unused Function And Missing Declaration Warnings After Major Removals
+EXTRA_CFLAGS += $(call cc-disable-warning, unused-function)
+EXTRA_CFLAGS += $(call cc-disable-warning, missing-declarations)
+EXTRA_CFLAGS += -g0 -ffunction-sections -fdata-sections
+
 ifeq ($(CONFIG_WLAN_OFFLOAD_PACKETS),y)
 CDEFINES += -DWLAN_FEATURE_OFFLOAD_PACKETS
 endif
