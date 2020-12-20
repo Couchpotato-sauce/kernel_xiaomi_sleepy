@@ -40,6 +40,7 @@
 
 #include "vos_memory.h"
 #include "wlan_nv_stream.h"
+#include <disable.h>
 
 _STREAM_BUF streamBuf;
 

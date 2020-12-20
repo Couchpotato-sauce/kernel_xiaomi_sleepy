@@ -45,6 +45,7 @@
 #include "vos_trace.h"
 
 //#include "wlan_libra_config.h"
+#include <disable.h>
 
 /*-------------------------------------------------------------------------- 
   Preprocessor definitions and constants

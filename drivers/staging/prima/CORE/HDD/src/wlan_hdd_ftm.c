@@ -77,6 +77,7 @@
 #include "wlan_qct_pal_device.h"
 #include "linux/wcnss_wlan.h"
 #include "qc_sap_ioctl.h"
+#include <disable.h>
 
 #define RXMODE_DISABLE_ALL 0
 #define RXMODE_ENABLE_ALL  1

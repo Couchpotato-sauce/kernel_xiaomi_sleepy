@@ -63,6 +63,7 @@
 
 #ifdef WLAN_FEATURE_LFR_MBB
 #include "lim_mbb.h"
+#include <disable.h>
 #endif
 
 static void limHandleSmeJoinResult(tpAniSirGlobal, tSirResultCodes, tANI_U16,tpPESession);

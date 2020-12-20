@@ -47,6 +47,7 @@
 #include "limSerDesUtils.h"
 #include "parserApi.h"
 #include "limSession.h"
+#include <disable.h>
 
 #ifdef WLAN_FEATURE_P2P_INTERNAL
 void limSendP2PProbeResponse(tpAniSirGlobal pMac, tANI_U8 *pBd, 

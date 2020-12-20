@@ -49,6 +49,7 @@
 #include <limAdmitControl.h>
 #include "wmmApsd.h"
 #include "vos_utils.h"
+#include <disable.h>
 
 #define LIM_FT_RIC_BA_SSN                       1
 #define LIM_FT_RIC_BA_DIALOG_TOKEN_TID_0         248

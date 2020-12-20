@@ -48,6 +48,7 @@
 
 #include "schApi.h"
 #include "schDebug.h"
+#include <disable.h>
 
 /// Minimum beacon interval allowed (in Kus)
 #define SCH_BEACON_INTERVAL_MIN  10

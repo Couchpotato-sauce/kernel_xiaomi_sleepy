@@ -58,6 +58,7 @@
 
 #ifdef FEATURE_WLAN_DIAG_SUPPORT
 #include "vos_diag_core_log.h"
+#include <disable.h>
 #endif //FEATURE_WLAN_DIAG_SUPPORT 
 
 /**

@@ -45,6 +45,7 @@
 #include <linux/delay.h>
 #if defined(ANI_OS_TYPE_ANDROID)
 #include <asm/arch_timer.h>
+#include <disable.h>
 #endif
 
 /*---------------------------------------------------------------------------

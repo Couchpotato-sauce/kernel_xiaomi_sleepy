@@ -43,6 +43,7 @@
 
 #include "wlan_nv2.h"
 #include "wlan_hal_msg.h"
+#include <disable.h>
 
 const sHalNv nvDefaults =
 {

@@ -39,6 +39,7 @@
 #include "sirApi.h"
 #include "rrmApi.h"
 #include "wlan_qct_tl.h"
+#include <disable.h>
 
 #define PREAUTH_REASSOC_TIMEOUT 500
 

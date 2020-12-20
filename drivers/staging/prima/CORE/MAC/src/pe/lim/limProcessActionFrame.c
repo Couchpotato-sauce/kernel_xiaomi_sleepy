@@ -72,6 +72,7 @@
 #include "lim_mbb.h"
 #endif
 #include "dot11f.h"
+#include <disable.h>
 
 #define BA_DEFAULT_TX_BUFFER_SIZE 64
 

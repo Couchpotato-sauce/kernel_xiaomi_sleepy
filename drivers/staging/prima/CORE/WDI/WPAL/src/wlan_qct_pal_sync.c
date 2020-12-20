@@ -40,6 +40,7 @@
 #include "wlan_qct_pal_trace.h"
 
 #include "wlan_qct_os_status.h"
+#include <disable.h>
 
 /**
 wpalMutexInit()

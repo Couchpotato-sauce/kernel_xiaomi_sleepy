@@ -321,6 +321,7 @@ void vos_timer_module_init( void )
 
 #ifdef TIMER_MANAGER
 #include "wlan_hdd_dp_utils.h"
+#include <disable.h>
 
 hdd_list_t vosTimerList;
 

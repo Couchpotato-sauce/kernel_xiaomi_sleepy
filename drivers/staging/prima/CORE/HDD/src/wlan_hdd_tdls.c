@@ -46,6 +46,7 @@
 #include "wlan_hdd_assoc.h"
 #include "sme_Api.h"
 #include "vos_sched.h"
+#include <disable.h>
 
 #ifdef TDLS_USE_SEPARATE_DISCOVERY_TIMER
 static tANI_S32 wlan_hdd_get_tdls_discovery_peer_cnt(tdlsCtx_t *pHddTdlsCtx);

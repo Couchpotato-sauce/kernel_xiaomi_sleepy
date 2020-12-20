@@ -829,6 +829,7 @@ void vos_get_wlan_unsafe_channel(v_U16_t *unsafeChannelList,
 #include <linux/skbuff.h>
 #include "vos_timer.h"
 #include "i_vos_packet.h"
+#include <disable.h>
 
 #define MAC_ADDR_ARRAY(a) (a)[0], (a)[1], (a)[2], (a)[3], (a)[4], (a)[5]
 #define MAC_ADDRESS_STR "%02x:%02x:%02x:%02x:%02x:%02x"

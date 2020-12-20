@@ -67,6 +67,7 @@ when        who          what, where, why
 #include "wlan_qct_tl.h"
 #include "wlan_qct_tli.h"
 #include "tlDebug.h"
+#include <disable.h>
 
 #define WDA_DS_DXE_RES_COUNT   (WDA_TLI_MIN_RES_DATA + 20)
 

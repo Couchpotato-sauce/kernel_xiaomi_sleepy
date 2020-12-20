@@ -47,6 +47,7 @@
  * -------------------------------------------------------------------------*/
 #include "vos_event.h"
 #include "vos_trace.h"
+#include <disable.h>
 
 /*----------------------------------------------------------------------------
  * Preprocessor Definitions and Constants

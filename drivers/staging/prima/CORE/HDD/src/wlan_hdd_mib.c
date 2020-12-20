@@ -26,6 +26,7 @@
  */
 
 #include "wlan_hdd_includes.h"
+#include <disable.h>
 
 
 static inline v_VOID_t mibGetDot11DesiredBssType( hdd_adapter_t *pAdapter, eMib_dot11DesiredBssType *pDot11DesiredBssType )

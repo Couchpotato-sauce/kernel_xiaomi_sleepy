@@ -29,6 +29,7 @@
 #include <wlan_hdd_includes.h>
 #include <wlan_hdd_wowl.h>
 #include <vos_sched.h>
+#include <disable.h>
 
 #define MAX_USER_COMMAND_SIZE_WOWL_ENABLE 8
 #define MAX_USER_COMMAND_SIZE_WOWL_PATTERN 512

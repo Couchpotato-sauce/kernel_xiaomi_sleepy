@@ -40,6 +40,7 @@
 
 #include "vos_trace.h"
 #include "schDebug.h"
+#include <disable.h>
 #define LOG_SIZE 256
 
 void schLog(tpAniSirGlobal pMac, tANI_U32 loglevel, const char *pString, ...)

@@ -67,6 +67,7 @@
 #include "stdio.h"
 #endif
 #include "wlan_hdd_main.h"
+#include <disable.h>
 
 /*--------------------------------------------------------------------------
   Function definitions

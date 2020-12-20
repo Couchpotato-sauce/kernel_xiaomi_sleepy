@@ -87,6 +87,7 @@
 
 #if defined(ANI_OS_TYPE_ANDROID)
 #include "bap_hdd_main.h"
+#include <disable.h>
 #endif
 
 //#define BAP_DEBUG

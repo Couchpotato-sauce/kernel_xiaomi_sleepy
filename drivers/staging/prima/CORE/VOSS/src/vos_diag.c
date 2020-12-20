@@ -41,6 +41,7 @@
 #include "vos_sched.h"
 #include "wlan_ptt_sock_svc.h"
 #include "wlan_nlink_srv.h"
+#include <disable.h>
 
 
 #define PTT_MSG_DIAG_CMDS_TYPE   0x5050
