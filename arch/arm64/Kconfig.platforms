@@ -354,4 +354,9 @@ config ARCH_ZYNQMP
 	help
 	  This enables support for Xilinx ZynqMP Family
 
+config MACH_XIAOMI_CLK_MOD
+	bool "Clock and Voltage Modifications"
+	help
+	  This enables support for Clock and Voltage Modifications
+
 endmenu
