@@ -1,0 +1,356 @@
+/* Copyright (c) 2020, The Linux Foundation. All rights reserved.
+*  Copyright (c) 2020, Jebaitedneko.
+*
+* This program is free software; you can redistribute it and/or modify
+* it under the terms of the GNU General Public License version 2 and
+* only version 2 as published by the Free Software Foundation.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*/
+
+/ {
+	cpus {
+		CPU0: cpu@0 {
+			clock-frequency = <2208000000>;
+		};
+		CPU1: cpu@1 {
+			clock-frequency = <2208000000>;
+		};
+		CPU2: cpu@2 {
+			clock-frequency = <2208000000>;
+		};
+		CPU3: cpu@3 {
+			clock-frequency = <2208000000>;
+		};
+		CPU4: cpu@100 {
+			clock-frequency = <2208000000>;
+		};
+		CPU5: cpu@101 {
+			clock-frequency = <2208000000>;
+		};
+		CPU6: cpu@102 {
+			clock-frequency = <2208000000>;
+		};
+		CPU7: cpu@103 {
+			clock-frequency = <2208000000>;
+		};
+	};
+};
+
+&soc {
+
+	devfreq-cpufreq {
+
+		cpubw-cpufreq {
+
+			cpu-to-dev-map =
+				<  652800  1611>,
+				< 1036800  3221>,
+				< 1401600  5859>,
+				< 1689600  6152>,
+				< 1804800  6445>,
+				< 1958400  7104>,
+				< 2016000  7104>,
+				< 2150400  7104>,
+				< 2208000  7104>;
+		};
+
+		mincpubw-cpufreq {
+
+			cpu-to-dev-map =
+				<  652800  769>,
+				< 1036800  2124>,
+				< 1401600  4248>,
+				< 1689600  5126>,
+				< 1804800  5859>,
+				< 1958400  6152>,
+				< 2016000  6152>,
+				< 2150400  6152>,
+				< 2208000  6152>;
+		};
+	};
+};
+
+&cpubw_compute {
+
+	qcom,core-dev-table =
+		<  652800  1611>,
+		< 1036800  3221>,
+		< 1401600  5859>,
+		< 1689600  6152>,
+		< 1804800  6445>,
+		< 1958400  7104>,
+		< 2016000  7104>,
+		< 2150400  7104>,
+		< 2208000  7104>;
+};
+
+&mincpubw_compute {
+
+	qcom,core-dev-table =
+		<  652800  769>,
+		< 1036800  2124>,
+		< 1401600  4248>,
+		< 1689600  5126>,
+		< 1804800  5859>,
+		< 1958400  6152>,
+		< 2016000  6152>,
+		< 2150400  6152>,
+		< 2208000  6152>;
+};
+
+&apc_cpr {
+
+	/delete-property/ qcom,cpr-aging-ref-voltage;
+	/delete-property/ qcom,cpr-aging-allowed-reg-mask;
+	/delete-property/ qcom,cpr-aging-allowed-reg-value;
+	/delete-property/ qcom,apm-hysteresis-voltage;
+	qcom,apm-threshold-voltage = <0>;
+};
+
+&apc_vreg {
+
+	/delete-property/ qcom,cpr-open-loop-voltage-fuse-adjustment;
+	/delete-property/ qcom,cpr-open-loop-voltage-adjustment;
+	/delete-property/ qcom,cpr-open-loop-voltage-min-diff;
+	/delete-property/ qcom,cpr-scaled-open-loop-voltage-as-ceiling;
+	/delete-property/ qcom,cpr-aging-derate;
+	/delete-property/ qcom,cpr-aging-max-voltage-adjustment;
+	/delete-property/ qcom,cpr-aging-ref-corner;
+	/delete-property/ qcom,cpr-aging-ro-scaling-factor;
+	/delete-property/ qcom,allow-aging-voltage-adjustment;
+	/delete-property/ qcom,allow-voltage-interpolation;
+	/delete-property/ qcom,allow-quotient-interpolation;
+
+	qcom,cpr-voltage-ceiling =
+		/* Speed bin 0 */
+		<600000  700000 750000 800000 850000
+			875000 875000 900000 900000>,
+
+		/* Speed bin 2 */
+		<600000  700000 750000 800000 850000
+			875000 875000>,
+
+		/* Speed bin 6 */
+		<600000  700000 750000 800000 850000
+			875000 875000>,
+
+		/* Speed bin 7 */
+		<600000  700000 750000 800000 850000
+			850000 875000 875000 900000>;
+
+	qcom,cpr-voltage-floor =
+		/* Speed bin 0 */
+		<350000  350000 350000 350000 350000
+			350000  350000 350000 350000>,
+
+		/* Speed bin 2 */
+		<350000  350000 350000 350000 350000
+			350000  350000>,
+
+		/* Speed bin 6 */
+		<350000  350000 350000 350000 350000
+			350000  350000>,
+
+		/* Speed bin 7 */
+		<350000  350000 350000 350000 350000
+			350000  350000 350000 350000>;
+
+	qcom,cpr-floor-to-ceiling-max-range =
+	/* Speed bin 0; CPR rev 0..7 */
+		<    0     0     0     0     0
+			0     0     0     0>,
+		<300000 300000 300000 300000 300000
+		300000 300000 300000 300000>,
+		<300000 300000 300000 300000 300000
+		300000 300000 300000 300000>,
+		<300000 300000 300000 300000 300000
+		300000 300000 300000 300000>,
+		<300000 300000 300000 300000 300000
+		300000 300000 300000 300000>,
+		<300000 300000 300000 300000 300000
+		300000 300000 300000 300000>,
+		<300000 300000 300000 300000 300000
+		300000 300000 300000 300000>,
+		<300000 300000 300000 300000 300000
+		300000 300000 300000 300000>,
+
+	/* Speed bin 2; CPR rev 0..7 */
+		<    0     0     0     0     0
+			0     0>,
+		<300000 300000 300000 300000 300000
+		300000 300000>,
+		<300000 300000 300000 300000 300000
+		300000 300000>,
+		<300000 300000 300000 300000 300000
+		300000 300000>,
+		<300000 300000 300000 300000 300000
+		300000 300000>,
+		<300000 300000 300000 300000 300000
+		300000 300000>,
+		<300000 300000 300000 300000 300000
+		300000 300000>,
+		<300000 300000 300000 300000 300000
+		300000 300000>,
+
+	/* Speed bin 6; CPR rev 0..7 */
+		<    0     0     0     0     0
+			0     0>,
+		<300000 300000 300000 300000 300000
+		300000 300000>,
+		<300000 300000 300000 300000 300000
+		300000 300000>,
+		<300000 300000 300000 300000 300000
+		300000 300000>,
+		<300000 300000 300000 300000 300000
+		300000 300000>,
+		<300000 300000 300000 300000 300000
+		300000 300000>,
+		<300000 300000 300000 300000 300000
+		300000 300000>,
+		<300000 300000 300000 300000 300000
+		300000 300000>,
+
+	/* Speed bin 7; CPR rev 0..7 */
+		<(-1) (-1) (-1) (-1) (-1)
+		(-1) (-1) (-1) (-1)>,
+		<(-1) (-1) (-1) (-1) (-1)
+		(-1) (-1) (-1) (-1)>,
+		<(-1) (-1) (-1) (-1) (-1)
+		(-1) (-1) (-1) (-1)>,
+		<(-1) (-1) (-1) (-1) (-1)
+		(-1) (-1) (-1) (-1)>,
+		<(-1) (-1) (-1) (-1) (-1)
+		(-1) (-1) (-1) (-1)>,
+		<(-1) (-1) (-1) (-1) (-1)
+		(-1) (-1) (-1) (-1)>,
+		<(-1) (-1) (-1) (-1) (-1)
+		(-1) (-1) (-1) (-1)>,
+		<(-1) (-1) (-1) (-1) (-1)
+		(-1) (-1) (-1) (-1)>;
+
+	qcom,cpr-misc-fuse-voltage-adjustment =
+		/* Speed bin 0; misc fuse 0..1 */
+		<    0     0     0     0      0
+				0     0     0     0>,
+		<    0     0 30000     0      0
+				0     0     0     0>,
+
+		/* Speed bin 2; misc fuse 0..1 */
+		<    0     0     0     0      0
+				0     0>,
+		<    0     0 30000     0      0
+				0     0>,
+
+		/* Speed bin 6; misc fuse 0..1 */
+		<    0     0     0     0      0
+				0     0>,
+		<    0     0 30000     0      0
+				0     0>,
+
+		/* Speed bin 7; misc fuse 0..1 */
+		<    0     0     0     0      0
+				0     0     0     0>,
+		<    0     0     0    0      0
+				0     0     0     0>;
+
+	qcom,cpr-closed-loop-voltage-fuse-adjustment =
+		/* Speed bin 0; CPR rev 0..7 */
+		<      0        0        0      0>,
+		<  10000 (-15000)        0  25000>,
+		<  10000 (-15000)        0  25000>,
+		<(-5000) (-30000) (-15000)  10000>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+
+		/* Speed bin 1; CPR rev 0..7 */
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+
+		/* Speed bin 2; CPR rev 0..7 */
+		<      0        0        0      0>,
+		<  10000 (-15000)        0  25000>,
+		<  10000 (-15000)        0  25000>,
+		<(-5000) (-30000) (-15000)  10000>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+
+		/* Speed bin 3; CPR rev 0..7 */
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+
+		/* Speed bin 4; CPR rev 0..7 */
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+
+		/* Speed bin 5; CPR rev 0..7 */
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+
+		/* Speed bin 6; CPR rev 0..7 */
+		<      0        0        0      0>,
+		<  10000 (-15000)        0  25000>,
+		<  10000 (-15000)        0  25000>,
+		<(-5000) (-30000) (-15000)  10000>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+
+		/* Speed bin 7; CPR rev 0..7 */
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>,
+		<      0        0        0      0>;
+};
+
+&spmi_bus {
+	qcom,pm8953@1 {
+
+		/* PM8953 S5 + S6 = VDD_APC supply */
+		pm8953_s5: spm-regulator@2000 {
+			regulator-min-microvolt = <350000>; /* Default 400000 */
+			regulator-max-microvolt = <900000>; /* Default 1140000 */
+
+			pm8953_s5_limit: avs-limit-regulator {
+				regulator-min-microvolt = <350000>; /* Default 400000 */
+				regulator-max-microvolt = <900000>; /* Default 1140000 */
+			};
+		};
+	};
+};
