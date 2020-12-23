@@ -81,3 +81,4 @@
 #include "sakura/sakura-mdss.dtsi"
 #include "sakura/sakura-qrd.dtsi"
 #include "sakura/sakura-camera.dtsi"
+#include "sakura/general-clk.dtsi"
