@@ -183,7 +183,7 @@ build_clang() {
 	HOSTNM=llvm-nm \
 	HOSTLD=ld.lld \
 	CROSS_COMPILE=aarch64-linux-gnu- \
-	CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
+	CROSS_COMPILE_ARM32=arm-linux-gnueabi-
 }
 
 make O=out ARCH=arm64 sleepy_defconfig
