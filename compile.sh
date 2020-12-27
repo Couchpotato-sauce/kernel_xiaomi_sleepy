@@ -162,15 +162,28 @@ fi
 
 # Compile the kernel
 build_clang() {
-    make -j"$(nproc --all)" O=out \
-        ARCH=arm64 \
-        CC=clang \
-        AR="llvm-ar" \
-        NM="llvm-nm" \
-        OBJCOPY="llvm-objcopy" \
-        OBJDUMP="llvm-objdump" \
-        STRIP="llvm-strip" \
-        CROSS_COMPILE=aarch64-linux-gnu-
+    make -j"$(nproc --all)" \
+	O=out \
+	ARCH=arm64 \
+	CC=clang \
+	CXX=clang++ \
+	AR=llvm-ar \
+	AS=llvm-as \
+	NM=llvm-nm \
+	LD=ld.lld \
+	STRIP=llvm-strip \
+	OBJCOPY=llvm-objcopy \
+	OBJDUMP=llvm-objdump\
+	OBJSIZE=llvm-size \
+	READELF=llvm-readelf \
+	HOSTCC=clang \
+	HOSTCXX=clang++ \
+	HOSTAR=llvm-ar \
+	HOSTAS=llvm-as \
+	HOSTNM=llvm-nm \
+	HOSTLD=ld.lld \
+	CROSS_COMPILE=aarch64-linux-gnu- \
+	CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
 }
 
 make O=out ARCH=arm64 sleepy_defconfig
