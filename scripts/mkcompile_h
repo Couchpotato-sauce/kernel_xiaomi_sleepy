@@ -5,6 +5,7 @@ ARCH=$2
 SMP=$3
 PREEMPT=$4
 CC=$5
+LD=$6
 
 vecho() { [ "${quiet}" = "silent_" ] || echo "$@" ; }
 
@@ -79,6 +80,7 @@ UTS_TRUNCATE="cut -b -$UTS_LEN"
 # Also append owner repo branch last commit hash respectively after cc version
   echo \#define LINUX_COMPILER \" \
   `$CC -v 2>&1 | grep version | sed 's/(.*)//g'` :: \
+  `$LD -v 2>&1 | sed 's/(.*)//g;s/  / /g'` :: \
   `git remote -v 2>&1 | grep push | head -n1 | cut -f2 | sed "s/(push)//" | cut -f4 -d "/"` // \
   `git remote -v 2>&1 | grep push | head -n1 | cut -f2 | sed "s/(push)//" | cut -f5 -d "/"` // \
   `git status 2>&1 | grep "On branch" | sed -e 's/On branch //g'` // \
