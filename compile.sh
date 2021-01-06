@@ -151,7 +151,7 @@ Commit: \`$COMMIT_POINT\`
 
 Changelog [Here!]($CHANGELOG)
 
-Kernel: \`sleepy ~ happy holidays!\`"
+Kernel: \`sleepy ~ but my college is a serious joke!\`"
 }
 
 if [ "$(whoami)" = "lacia" ]  || [ "$(whoami)" = "lacia-chan" ] || [ "$(whoami)" = "レイシア" ]; then
@@ -199,7 +199,9 @@ TelegramSuccess() {
         -F chat_id="-$CHATID" \
         -F "disable_web_page_preview=true" \
         -F "parse_mode=Markdown" \
-        -F caption="✅ Build finished in \`$(($DIFF / 60))\` minute(s) and \`$(($DIFF % 60))\` seconds"
+        -F caption="✅ Build finished in \`$(($DIFF / 60))\` minute(s) and \`$(($DIFF % 60))\` seconds
+        MD5SUM: $MD5
+        SHASUM: $SHA"
 }
 
 # Notify $CHATID about the fact that the build failed
@@ -221,12 +223,19 @@ zip_kernelimage() {
     cd ..
 }
 
+# Get MD5SUM and SHASUM of the zipped kernel
+Hash() {
+    SHA=$(shasum "$(pwd)"/AnyKernel3/Sleepy-r"${RELEASE}"-"${BUILD_TIME}".zip)
+    MD5=$(md5sum "$(pwd)"/AnyKernel3/Sleepy-r"${RELEASE}"-"${BUILD_TIME}".zip)
+}
+
 # If the kernel compiled sucessfully zip it up and upload to $CHATID (Lacia only), otherwise just zip it up and print the location of the zip.
 TelegramStatus() {
     # Check if compilation went successfully
     FILE="$(pwd)/out/arch/arm64/boot/Image.gz-dtb"
     if [ -f "$FILE" ]; then
         zip_kernelimage
+        Hash
         TelegramSuccess
     else
         TelegramFailure
