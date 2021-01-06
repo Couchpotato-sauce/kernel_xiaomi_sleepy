@@ -225,8 +225,8 @@ zip_kernelimage() {
 
 # Get MD5SUM and SHASUM of the zipped kernel
 Hash() {
-    SHA=$(shasum "$(pwd)"/AnyKernel3/Sleepy-r"${RELEASE}"-"${BUILD_TIME}".zip)
-    MD5=$(md5sum "$(pwd)"/AnyKernel3/Sleepy-r"${RELEASE}"-"${BUILD_TIME}".zip)
+    SHA=$(shasum "$(pwd)"/AnyKernel3/Sleepy-r"${RELEASE}"-"${BUILD_TIME}".zip | cut -f 1 -d '/')
+    MD5=$(md5sum "$(pwd)"/AnyKernel3/Sleepy-r"${RELEASE}"-"${BUILD_TIME}".zip | cut -f 1 -d '/')
 }
 
 # If the kernel compiled sucessfully zip it up and upload to $CHATID (Lacia only), otherwise just zip it up and print the location of the zip.
