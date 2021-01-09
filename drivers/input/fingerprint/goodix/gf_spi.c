@@ -658,7 +658,7 @@ static int goodix_fb_state_chg_callback(struct notifier_block *nb,
 	printk("SXF Enter %s val = %d \n ", __func__, (int)val);  /* add  for D1S-634 by zhongshengbin */
 	if (val != FB_EVENT_BLANK)
 		return 0;
-	pr_info("[info] %s go to the goodix_fb_state_chg_callback value = %d\n",
+	pr_debug("[info] %s go to the goodix_fb_state_chg_callback value = %d\n",
 			__func__, (int)val);
 	gf_dev = container_of(nb, struct gf_dev, notifier);
 	/* modified by zhongshengbin for fingerprint D1S-634 begin 2018-03-04 */
