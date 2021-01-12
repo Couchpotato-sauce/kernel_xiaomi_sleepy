@@ -122,3 +122,14 @@ kernel/configs/android-*.cfg
 #Ignoring Android.bp link file
 #
 Android.bp
+
+# Don't include my stuff smh
+AnyKernel3/
+bapi/
+changelog.txt
+changes.txt
+environment/
+incremental/
+localv.txt
+out/
+proton-clang/
