@@ -754,7 +754,7 @@ void gtp_reset_guitar(struct i2c_client *client, s32 ms)
 {
 	struct goodix_ts_data *ts = i2c_get_clientdata(client);
 
-	dev_info(&client->dev, "Guitar reset");
+	dev_dbg(&client->dev, "Guitar reset");
 	set_bit(PANEL_RESETTING, &ts->flags);
 	if (!gpio_is_valid(ts->pdata->rst_gpio)) {
 		dev_warn(&client->dev, "reset failed no valid reset gpio");
@@ -2326,7 +2326,7 @@ static void gtp_resume(struct goodix_ts_data *ts)
 		return;
 	}
 
-	dev_info(&ts->client->dev, "Try resume from sleep mode\n");
+	dev_dbg(&ts->client->dev, "Try resume from sleep mode\n");
 
 	gtp_work_control_enable(ts, false);
 
@@ -2366,7 +2366,7 @@ static void fb_notify_resume_work(struct work_struct *work)
 {
 	struct goodix_ts_data *ts =
 		container_of(work, struct goodix_ts_data, fb_notify_work);
-	dev_info(&ts->client->dev, "try resume in workqueue\n");
+	dev_dbg(&ts->client->dev, "try resume in workqueue\n");
 	gtp_resume(ts);
 }
 
@@ -2605,7 +2605,7 @@ void gtp_esd_on(struct goodix_ts_data *ts)
 	if (ts_esd->esd_on == false) {
 		ts_esd->esd_on = true;
 		schedule_delayed_work(&ts_esd->delayed_work, 2 * HZ);
-		dev_info(&ts->client->dev, "ESD on");
+		dev_dbg(&ts->client->dev, "ESD on");
 	}
 	mutex_unlock(&ts_esd->mutex);
 }
@@ -2620,7 +2620,7 @@ void gtp_esd_off(struct goodix_ts_data *ts)
 	if (ts_esd->esd_on == true) {
 		ts_esd->esd_on = false;
 		cancel_delayed_work_sync(&ts_esd->delayed_work);
-		dev_info(&ts->client->dev, "ESD off");
+		dev_dbg(&ts->client->dev, "ESD off");
 	}
 	mutex_unlock(&ts_esd->mutex);
 }
