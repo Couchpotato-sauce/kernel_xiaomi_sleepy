@@ -62,7 +62,7 @@ incremental() {
     fi
 }
 
-if [ "$(whoami)" = "lacia" ]  || [ "$(whoami)" = "lacia-chan" ] || [ "$(whoami)" = "レイシア" ]; then
+if [ "$(whoami)" = "gitpod" ]  || [ "$(whoami)" = "lacia-chan" ] || [ "$(whoami)" = "レイシア" ]; then
     incremental
 else
     sleep 10
@@ -73,7 +73,7 @@ wireguard() {
     ./scripts/fetch-latest-wireguard.sh
 }
 
-if [ "$(whoami)" = "lacia" ]  || [ "$(whoami)" = "lacia-chan" ] || [ "$(whoami)" = "レイシア" ]; then
+if [ "$(whoami)" = "gitpod" ]  || [ "$(whoami)" = "lacia-chan" ] || [ "$(whoami)" = "レイシア" ]; then
     wireguard
 else
     sleep 10
@@ -93,10 +93,9 @@ export PATH
 export KBUILD_COMPILER_STRING
 
 # Git log the last 10 commits and upload them to del.dog (Lacia only)
-if [ "$(whoami)" = "lacia" ]  || [ "$(whoami)" = "lacia-chan" ] || [ "$(whoami)" = "レイシア" ]; then
+if [ "$(whoami)" = "gitpod" ]  || [ "$(whoami)" = "lacia-chan" ] || [ "$(whoami)" = "レイシア" ]; then
     git log --pretty=oneline -10 >changelog.txt
-    pastebinit changelog.txt >changes.txt
-    CHANGELOG=$(cat changes.txt)
+    CHANGELOG=$(cat changelog.txt | curl -F 'sprunge=<-' http://sprunge.us)
     echo $CHANGELOG
 else
     sleep 10
@@ -118,7 +117,7 @@ TelegramAPI() {
     fi
 }
 
-if [ "$(whoami)" = "lacia" ]  || [ "$(whoami)" = "lacia-chan" ] || [ "$(whoami)" = "レイシア" ]; then
+if [ "$(whoami)" = "gitpod" ]  || [ "$(whoami)" = "lacia-chan" ] || [ "$(whoami)" = "レイシア" ]; then
     TelegramAPI
 else
     sleep 10
@@ -154,7 +153,7 @@ Changelog [Here!]($CHANGELOG)
 Kernel: \`sleepy ~ but my college is a serious joke!\`"
 }
 
-if [ "$(whoami)" = "lacia" ]  || [ "$(whoami)" = "lacia-chan" ] || [ "$(whoami)" = "レイシア" ]; then
+if [ "$(whoami)" = "gitpod" ]  || [ "$(whoami)" = "lacia-chan" ] || [ "$(whoami)" = "レイシア" ]; then
     TelegramInfo
 else
     sleep 10
@@ -242,7 +241,7 @@ TelegramStatus() {
     fi
 }
 
-if [ "$(whoami)" = "lacia" ]  || [ "$(whoami)" = "lacia-chan" ] || [ "$(whoami)" = "レイシア" ]; then
+if [ "$(whoami)" = "gitpod" ]  || [ "$(whoami)" = "lacia-chan" ] || [ "$(whoami)" = "レイシア" ]; then
     TelegramStatus
 else
     FILE="$(pwd)/out/arch/arm64/boot/Image.gz-dtb"
