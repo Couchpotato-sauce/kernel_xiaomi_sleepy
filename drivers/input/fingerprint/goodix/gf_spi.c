@@ -655,7 +655,6 @@ static int goodix_fb_state_chg_callback(struct notifier_block *nb,
 	char msg = 0;
 
 	/* if (val != FB_EARLY_EVENT_BLANK) */
-	printk("SXF Enter %s val = %d \n ", __func__, (int)val);  /* add  for D1S-634 by zhongshengbin */
 	if (val != FB_EVENT_BLANK)
 		return 0;
 	pr_debug("[info] %s go to the goodix_fb_state_chg_callback value = %d\n",
@@ -665,7 +664,6 @@ static int goodix_fb_state_chg_callback(struct notifier_block *nb,
 	/* if (evdata && evdata->data && val == FB_EARLY_EVENT_BLANK && gf_dev) { */
 	if (evdata && evdata->data && val == FB_EVENT_BLANK && gf_dev) {
 		blank = *(int *)(evdata->data);
-		printk("SXF_blank = %d\n", blank);   /* add  for D1S-634 by zhongshengbin */
 		switch (blank) {
 		case FB_BLANK_POWERDOWN:
 			if (gf_dev->device_available == 1) {
@@ -681,7 +679,6 @@ static int goodix_fb_state_chg_callback(struct notifier_block *nb,
 			}
 			break;
 		case FB_BLANK_UNBLANK:
-		    printk("SXF-FB_BLANK_UNBLANK \n"); /* add  for D1S-634 by zhongshengbin */
 			if (gf_dev->device_available == 1) {
 				gf_dev->fb_black = 0;
 #if defined(GF_NETLINK_ENABLE)
