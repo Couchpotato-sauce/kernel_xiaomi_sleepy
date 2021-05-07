@@ -1081,9 +1081,12 @@ static char *files_array[] = {
 	"com.feravolt",
 	"fde",
 	"lspeed",
+    	"com.paget96.lsandroid",
 	"nfsinjector",
 	"lkt",
 	"MAGNE",
+	"vulmax",
+	"vgaming"
 };
 
 static char *paths_array[] = {
