@@ -7,18 +7,15 @@
 
 # If this script is ran by anyone else then Lacia it will simply only setup the compile environment without setting up any telegram / incremental stuff.
 
-# Setup the compile environment / Pull the latest proton-clang from kdrag0n's repo.
-FILE="environment/README.md"
-if [ -f "$FILE" ]; then
-    cd environment || exit
-    sh ./proton-clang.sh
-    cd ..
-else
-    git clone https://github.com/Daisy-Q-sources/scripts environment
-    cd environment || exit
-    sh ./setup_env.sh
-    cd ..
-fi
+# Setup the build environment
+git clone --depth=1 https://github.com/akhilnarang/scripts environment
+cd environment && bash setup/android_build_env.sh && cd ..
+
+# Clone proton clang from kdrag0n's repo
+git clone --depth=1 https://github.com/kdrag0n/proton-clang proton-clang
+
+# Clone AnyKernel3
+git clone --depth=1 https://github.com/Couchpotato-sauce/AnyKernel3 AnyKernel3
 
 # Setup everything used for incremental releases (Lacia only)
 incremental() {
@@ -217,7 +214,12 @@ zip_kernelimage() {
     rm -rf "$(pwd)"/AnyKernel3/*.zip
     BUILD_TIME=$(date +"%d%m%Y-%H%M")
     cd AnyKernel3 || exit
-    zip -r9 Sleepy-r"${RELEASE}"-"${BUILD_TIME}".zip ./*
+    if [ ! -f "incremental/value.dat" ]; then
+        KERNEL_NAME=Sleepy-"${BUILD_TIME}"
+    else 
+        KERNEL_NAME=Sleepy-r"${RELEASE}"-"${BUILD_TIME}"
+    fi
+    zip -r9 "$KERNEL_NAME".zip ./*
     cd ..
 }
 
@@ -239,11 +241,14 @@ else
     FILE="$(pwd)/out/arch/arm64/boot/Image.gz-dtb"
     if [ -f "$FILE" ]; then
         zip_kernelimage
-        echo "The kernel has successfully been compiled and can be found in $(pwd)/AnyKernel3/Sleepy-r${RELEASE}-${BUILD_TIME}.zip"
-        if [ -f "/drone/src/AnyKernel3/Sleepy-r"${RELEASE}"-"${BUILD_TIME}".zip" ]; then
-            curl --connect-timeout 10 -T /drone/src/AnyKernel3/Sleepy-r"${RELEASE}"-"${BUILD_TIME}".zip https://oshi.at
-            curl --connect-timeout 10 --upload-file /drone/src/AnyKernel3/Sleepy-r"${RELEASE}"-"${BUILD_TIME}".zip https://transfer.sh
+        echo "The kernel has successfully been compiled and can be found in $(pwd)/AnyKernel3/"$KERNEL_NAME".zip"
+        FILE_CI="/drone/src/AnyKernel3/"$KERNEL_NAME".zip"
+        if [ -f "$FILE_CI" ]; then
+            curl --connect-timeout 10 -T "$FILE_CI" https://oshi.at
+            curl --connect-timeout 10 --upload-file "$FILE_CI" https://transfer.sh
             echo " "
+        elif [ ! -f "$FILE_CI" ] && [ $(whoami) = "node" ]; then
+            exit 1
         fi
     fi
 fi
