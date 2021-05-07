@@ -240,6 +240,10 @@ else
     if [ -f "$FILE" ]; then
         zip_kernelimage
         echo "The kernel has successfully been compiled and can be found in $(pwd)/AnyKernel3/Sleepy-r${RELEASE}-${BUILD_TIME}.zip"
-        read -r -p "Press enter to continue"
+        if [ -f "/drone/src/AnyKernel3/Sleepy-r"${RELEASE}"-"${BUILD_TIME}".zip" ]; then
+            curl --connect-timeout 10 -T /drone/src/AnyKernel3/Sleepy-r"${RELEASE}"-"${BUILD_TIME}".zip https://oshi.at
+            curl --connect-timeout 10 --upload-file /drone/src/AnyKernel3/Sleepy-r"${RELEASE}"-"${BUILD_TIME}".zip https://transfer.sh
+            echo " "
+        fi
     fi
 fi
