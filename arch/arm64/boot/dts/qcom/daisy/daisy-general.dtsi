@@ -48,14 +48,19 @@
 		wcnss_fw_mem: wcnss_fw_region@0 {
 			reg = <0x0 0x8e800000 0x0 0x700000>;
 		};
-		pstore_reserve_mem: pstore_reserve_mem_region@0 {
-			compatible = "removed-dma-pool";
-			no-map;
-			reg = <0x0 0x9ff00000 0x0 0x00100000>;
-		};
 	};
 	aliases {
 		spi6 = &spi_6;
+	};
+
+	reserved-memory {
+		ramoops_mem: ramoops@91400000 {
+			compatible = "ramoops";
+			reg = <0x0 0x91400000 0x0 0x00400000>;
+			record-size = <0x80000>;
+			pmsg-size = <0x200000>;
+			console-size = <0x100000>;
+		};
 	};
 };
 
