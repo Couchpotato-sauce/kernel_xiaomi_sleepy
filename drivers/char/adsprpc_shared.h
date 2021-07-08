@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012-2019, 2020 The Linux Foundation. All rights reserved.
+ * Copyright (c) 2012-2021, The Linux Foundation. All rights reserved.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -32,6 +32,8 @@
 #define FASTRPC_IOCTL_INVOKE_CRC _IOWR('R', 11, struct fastrpc_ioctl_invoke_crc)
 #define FASTRPC_IOCTL_CONTROL   _IOWR('R', 12, struct fastrpc_ioctl_control)
 #define FASTRPC_IOCTL_MUNMAP_FD _IOWR('R', 13, struct fastrpc_ioctl_munmap_fd)
+#define FASTRPC_IOCTL_GET_DSP_INFO \
+			_IOWR('R', 16, struct fastrpc_ioctl_dsp_capabilities)
 
 #define FASTRPC_GLINK_GUID "fastrpcglink-apps-dsp"
 #define FASTRPC_SMD_GUID "fastrpcsmd-apps-dsp"
@@ -269,6 +271,12 @@ struct fastrpc_ioctl_control {
 	};
 };
 
+#define FASTRPC_MAX_DSP_ATTRIBUTES	(7)
+struct fastrpc_ioctl_dsp_capabilities {
+	uint32_t domain;	//! DSP domain to query capabilities
+	uint32_t dsp_attributes[FASTRPC_MAX_DSP_ATTRIBUTES];
+};
+
 struct smq_null_invoke {
 	uint64_t ctx;			/* invoke caller context */
 	uint32_t handle;	    /* handle to invoke */
@@ -330,7 +338,6 @@ enum fastrpc_proc_attr {
 	FASTRPC_MODE_ADAPTIVE_QOS		= 1 << 4,
 	/* Macro for System Process */
 	FASTRPC_MODE_SYSTEM_PROCESS		= 1 << 5,
-
 };
 
 #endif
