@@ -116,8 +116,8 @@
 		interrupt-parent = <&tlmm>;
 		interrupts = <9 0x0>;
 
-		fp-gpio-reset   = <&tlmm 140 0>;
-		fp-gpio-irq     = <&tlmm 48 0>;
+		goodix,gpio_reset    = <&tlmm 140 0>;
+		goodix,gpio_irq      = <&tlmm 48 0>;
 
 		clock-names = "iface_clk", "core_clk";
 		clocks = <&clock_gcc clk_gcc_blsp1_ahb_clk>,
