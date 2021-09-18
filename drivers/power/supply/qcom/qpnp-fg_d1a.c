@@ -7458,6 +7458,9 @@ static void fg_cancel_all_works(struct fg_chip *chip)
 static void fg_cleanup(struct fg_chip *chip)
 {
 	fg_cancel_all_works(chip);
+#ifdef CONFIG_DEBUG_FS
+	power_supply_unregister(chip->bms_psy);
+#endif
 	mutex_destroy(&chip->rslow_comp.lock);
 	mutex_destroy(&chip->rw_lock);
 	mutex_destroy(&chip->cyc_ctr.lock);
@@ -8956,6 +8959,10 @@ static int fg_probe(struct platform_device *pdev)
 
 	return rc;
 
+#ifdef CONFIG_DEBUG_FS
+power_supply_unregister:
+	power_supply_unregister(chip->bms_psy);
+#endif
 cancel_work:
 	fg_cancel_all_works(chip);
 of_init_fail:
