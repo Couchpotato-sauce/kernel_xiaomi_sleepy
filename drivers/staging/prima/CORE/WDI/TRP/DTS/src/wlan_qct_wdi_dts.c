@@ -48,7 +48,6 @@
 #include "wlan_qct_wdi_sta.h"
 #include "vos_utils.h"
 #include "vos_api.h"
-#include <disable.h>
 
 
 static WDTS_TransportDriverTrype gTransportDriver = {

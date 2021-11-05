@@ -57,7 +57,6 @@
 #include "limSerDesUtils.h"
 #ifdef WLAN_FEATURE_LFR_MBB
 #include "lim_mbb.h"
-#include <disable.h>
 #endif
 
 

@@ -36,7 +36,6 @@
 #include <btcApi.h>
 #include <wlan_hdd_includes.h>
 #include <vos_trace.h>
-#include <disable.h>
 // Global variables
 static struct hdd_context_s *pHddCtx;
 

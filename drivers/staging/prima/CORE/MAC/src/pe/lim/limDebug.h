@@ -58,5 +58,4 @@ void __printf(3,4) limLog(tpAniSirGlobal pMac, tANI_U32 loglevel,
 #define LIM_LOG_TDLS(x0) 
 #endif
 
-#include <disable.h>
 #endif

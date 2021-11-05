@@ -47,7 +47,6 @@
 #include "limAssocUtils.h"
 #include "limPropExtsUtils.h"
 #include "limSerDesUtils.h"
-#include <disable.h>
 
 /**
  * limProcessBeaconFrame

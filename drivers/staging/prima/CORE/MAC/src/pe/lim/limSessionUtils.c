@@ -41,7 +41,6 @@
 #include "limSession.h"
 #include "limSessionUtils.h"
 #include "limUtils.h"
-#include <disable.h>
 
 /*--------------------------------------------------------------------------
   \brief peGetVhtCapable() - Returns the Vht capable from a valid session.

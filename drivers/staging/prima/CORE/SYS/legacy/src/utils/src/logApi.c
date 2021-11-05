@@ -50,7 +50,6 @@
 
 #ifdef ANI_OS_TYPE_ANDROID
 #include <linux/kernel.h>
-#include <disable.h>
 #endif
 
 

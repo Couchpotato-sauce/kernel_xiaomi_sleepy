@@ -44,7 +44,6 @@
 #include "rrmApi.h"
 #endif
 #include "vos_utils.h"
-#include <disable.h>
 
 /**
  * limDeactiveMinChannelTimerDuringScan()

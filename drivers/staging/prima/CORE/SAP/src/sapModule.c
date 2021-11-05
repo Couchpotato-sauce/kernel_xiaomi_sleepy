@@ -73,7 +73,6 @@
 
 #include "sapInternal.h"
 #include "smeInside.h"
-#include <disable.h>
 
 /*----------------------------------------------------------------------------
  * Preprocessor Definitions and Constants

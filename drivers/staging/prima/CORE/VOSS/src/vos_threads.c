@@ -45,7 +45,6 @@
 #include <linux/sched.h>
 #include <linux/delay.h>
 #include <linux/interrupt.h>
-#include <disable.h>
 
 /*-------------------------------------------------------------------------- 
   Preprocessor definitions and constants

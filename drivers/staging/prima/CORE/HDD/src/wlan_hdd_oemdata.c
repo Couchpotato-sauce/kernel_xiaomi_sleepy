@@ -47,7 +47,6 @@
 #include <net/arp.h>
 #include <vos_sched.h>
 #include "qwlan_version.h"
-#include <disable.h>
 
 static struct hdd_context_s *pHddCtx;
 

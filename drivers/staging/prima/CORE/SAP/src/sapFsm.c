@@ -71,7 +71,6 @@
 // Pick up the PMC API definitions
 #include "pmcApi.h"
 #include "wlan_nv.h"
-#include <disable.h>
 
 /*----------------------------------------------------------------------------
  * Preprocessor Definitions and Constants

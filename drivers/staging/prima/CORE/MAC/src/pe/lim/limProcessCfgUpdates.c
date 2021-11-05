@@ -47,7 +47,6 @@
 #include "pmmApi.h"
 #if defined WLAN_FEATURE_VOWIFI
 #include "rrmApi.h"
-#include <disable.h>
 #endif
 
 static void limUpdateConfig(tpAniSirGlobal pMac,tpPESession psessionEntry);

@@ -48,7 +48,6 @@
 
 #include "pmmApi.h"
 #include "pmmDebug.h"
-#include <disable.h>
 
 /**
  * pmmGenerateTIM

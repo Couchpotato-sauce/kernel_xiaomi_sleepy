@@ -99,7 +99,6 @@
 // Pick up the DOT11 Frames compiler
 // I just need these one "opaque" type definition in order to use the "frames" code
 #include "dot11f.h"
-#include <disable.h>
 
 #if 0
 /*

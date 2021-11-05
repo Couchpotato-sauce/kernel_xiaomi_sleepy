@@ -36,7 +36,6 @@
 #include "vos_types.h"
 #include "wlan_qct_tl_trace.h"
 #include "tlDebug.h"
-#include <disable.h>
 
 static v_U8_t __maybe_unused * tlTraceGetEventString(v_U32_t code)
 {

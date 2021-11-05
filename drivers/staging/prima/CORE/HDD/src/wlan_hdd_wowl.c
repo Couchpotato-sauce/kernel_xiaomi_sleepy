@@ -38,7 +38,6 @@
 #include <net/cfg80211.h>
 #include <wlan_hdd_includes.h>
 #include <wlan_hdd_wowl.h>
-#include <disable.h>
 
 /*----------------------------------------------------------------------------
  * Preprocessor Definitions and Constants

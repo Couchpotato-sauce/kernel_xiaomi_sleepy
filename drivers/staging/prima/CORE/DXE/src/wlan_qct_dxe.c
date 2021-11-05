@@ -65,7 +65,6 @@ when           who        what, where, why
 #include "wlan_qct_dxe_i.h"
 #include "wlan_qct_pal_device.h"
 #include "vos_api.h"
-#include <disable.h>
 
 /*----------------------------------------------------------------------------
  * Local Definitions

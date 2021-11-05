@@ -59,7 +59,6 @@
 #include "limTypes.h"
 
 #include "wlan_qct_wda.h"
-#include <disable.h>
 
 //--------------------------------------------------------------------
 //

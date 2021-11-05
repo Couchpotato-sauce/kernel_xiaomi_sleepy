@@ -37,7 +37,6 @@
  */
 
 #include "limStaHashApi.h"
-#include <disable.h>
 
 
 /**

@@ -38,7 +38,6 @@
 
 #include "wlan_qct_pal_trace.h"
 #include "i_vos_types.h"
-#include <disable.h>
 
 #ifdef WLAN_DEBUG
 

@@ -36,7 +36,6 @@
 #ifdef WLAN_FEATURE_P2P_INTERNAL
 #include "p2p_ie.h"
 #include "p2pFsm.h"
-#include <disable.h>
 
 extern tp2pie gP2PIe;
 

@@ -43,7 +43,6 @@
 
 #ifdef WLAN_FEATURE_LFR_MBB
 #include "csr_roam_mbb.h"
-#include <disable.h>
 #endif
 
 

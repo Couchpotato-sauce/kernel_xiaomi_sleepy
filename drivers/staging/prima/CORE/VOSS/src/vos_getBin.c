@@ -35,7 +35,6 @@
 #include <vos_sched.h>
 #include <wlan_hdd_misc.h>
 #include <wlan_hdd_main.h>
-#include <disable.h>
 /**-----------------------------------------------------------------------------
   Preprocessor definitions and constants
   ----------------------------------------------------------------------------*/

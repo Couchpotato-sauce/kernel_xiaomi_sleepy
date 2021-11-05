@@ -54,7 +54,6 @@
 #include "vos_types.h"
 #include "vos_trace.h"
 #include "vos_sched.h"
-#include <disable.h>
 
 //Ms to Micro Sec
 #define MS_TO_MUS(x)   ((x)*1000);

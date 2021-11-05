@@ -83,7 +83,6 @@ logDump.c
 #include "logDump.h"
 #include "sysDebug.h"
 #include "wlan_qct_wda.h"
-#include <disable.h>
 
 #define HAL_LOG_DUMP_CMD_START 0
 

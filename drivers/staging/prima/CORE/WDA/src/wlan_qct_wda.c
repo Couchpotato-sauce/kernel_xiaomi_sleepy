@@ -76,7 +76,6 @@
 #include "vos_sched.h"
 #include "pttMsgApi.h"
 #include "wlan_qct_sys.h"
-#include <disable.h>
 /* Used MACRO's */
 /* Get WDA context from vOSS module */
 #define WDA_2_4_GHZ_MAX_FREQ  3000

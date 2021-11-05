@@ -42,7 +42,6 @@
 #include "smsDebug.h"
 #include "sme_Api.h"
 #include "cfgApi.h"
-#include <disable.h>
 
 #if defined(ANI_LOGDUMP)
 

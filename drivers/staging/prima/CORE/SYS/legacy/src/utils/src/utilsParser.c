@@ -39,7 +39,6 @@
 #include "aniGlobal.h"
 #include "utilsParser.h"
 #include "limSerDesUtils.h"
-#include <disable.h>
 
 void ConvertSSID(tpAniSirGlobal pMac,
                        tSirMacSSid   *pOld,

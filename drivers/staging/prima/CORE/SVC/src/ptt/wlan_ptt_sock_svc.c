@@ -40,7 +40,6 @@
 #include <vos_types.h>
 #include <vos_trace.h>
 #include <wlan_hdd_ftm.h>
-#include <disable.h>
 
 #define PTT_SOCK_DEBUG
 #ifdef PTT_SOCK_DEBUG

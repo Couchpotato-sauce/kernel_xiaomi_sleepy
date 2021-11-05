@@ -91,7 +91,6 @@
 #else
 #include "msm_smd.h"
 #endif
-#include <disable.h>
 
 /* Global context for CTS handle, it is required to keep this 
  * transport open during SSR shutdown */

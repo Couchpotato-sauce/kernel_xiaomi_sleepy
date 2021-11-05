@@ -68,7 +68,6 @@
  * Include Files
  * ------------------------------------------------------------------------*/
 #include "VossWrapper.h"
-#include <disable.h>
 
 #ifdef WLAN_DEBUG
 #define TIMER_NAME (timer_ptr->timerName)

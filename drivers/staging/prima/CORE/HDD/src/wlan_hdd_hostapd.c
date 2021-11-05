@@ -89,7 +89,6 @@
 #include "wlan_hdd_trace.h"
 #include "vos_types.h"
 #include "vos_trace.h"
-#include <disable.h>
 
 #define    IS_UP(_dev) \
     (((_dev)->flags & (IFF_RUNNING|IFF_UP)) == (IFF_RUNNING|IFF_UP))

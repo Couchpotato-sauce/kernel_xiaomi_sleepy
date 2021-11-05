@@ -73,7 +73,6 @@
 #include "sapInternal.h"
 #ifdef WLAN_FEATURE_AP_HT40_24G
 #include "vos_utils.h"
-#include <disable.h>
 #endif
 
 /*----------------------------------------------------------------------------

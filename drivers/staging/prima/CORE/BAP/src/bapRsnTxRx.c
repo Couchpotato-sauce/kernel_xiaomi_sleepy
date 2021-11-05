@@ -43,7 +43,6 @@
 #include "vos_trace.h"
 #include "wlan_qct_tl.h"
 #include "vos_memory.h"
-#include <disable.h>
 
 
 static pnfTxCompleteHandler bapRsnFsmTxCmpHandler;

@@ -47,7 +47,6 @@
 #include "wlan_qct_pal_status.h"
 #include "wlan_qct_pal_api.h"
 #include "wlan_qct_pal_packet.h"
-#include <disable.h>
 
 
 

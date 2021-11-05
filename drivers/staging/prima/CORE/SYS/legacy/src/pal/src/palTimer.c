@@ -36,7 +36,6 @@
 #include <palTimer.h>
 #include <vos_timer.h>
 #include <vos_memory.h>
-#include <disable.h>
 
 #ifndef FEATURE_WLAN_PAL_TIMER_DISABLE
 typedef struct sPalTimer

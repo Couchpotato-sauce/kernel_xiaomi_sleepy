@@ -58,7 +58,6 @@
 
 #ifdef WLAN_FEATURE_LFR_MBB
 #include "lim_mbb.h"
-#include <disable.h>
 #endif
 
 extern tSirRetStatus schBeaconEdcaProcess(tpAniSirGlobal pMac, tSirMacEdcaParamSetIE *edca, tpPESession psessionEntry);

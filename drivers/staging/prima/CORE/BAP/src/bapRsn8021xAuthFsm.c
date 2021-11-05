@@ -51,7 +51,6 @@
 #include "bapRsnTxRx.h"
 #include "bapRsnSsmAesKeyWrap.h"
 #include "btampFsm.h"
-#include <disable.h>
 
 // The different states that this FSM transitions through
 #define DISCONNECT           0

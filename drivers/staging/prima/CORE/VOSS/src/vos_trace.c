@@ -62,7 +62,6 @@
 #include <vos_trace.h>
 #include <aniGlobal.h>
 #include <wlan_logging_sock_svc.h>
-#include <disable.h>
 /*--------------------------------------------------------------------------
   Preprocessor definitions and constants
   ------------------------------------------------------------------------*/

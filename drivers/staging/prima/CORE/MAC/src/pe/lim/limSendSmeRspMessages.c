@@ -55,7 +55,6 @@
 #include "limIbssPeerMgmt.h"
 #include "limSessionUtils.h"
 #include "lim_mbb.h"
-#include <disable.h>
 
 /**
  * limSendSmeRsp()

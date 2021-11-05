@@ -67,7 +67,6 @@
 #endif
 
 #include "wlan_qct_wda.h"
-#include <disable.h>
 
 #define LIM_ADMIT_MASK_FLAG_ACBE 1
 #define LIM_ADMIT_MASK_FLAG_ACBK 2

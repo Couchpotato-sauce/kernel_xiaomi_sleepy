@@ -52,7 +52,6 @@
 #include "limSerDesUtils.h"
 #include "limTrace.h"
 #include "limSession.h"
-#include <disable.h>
 #define LIM_GET_NOISE_MAX_TRY 5
 #define LIM_OPERATING_EXT_IDENTIFIER 201
 

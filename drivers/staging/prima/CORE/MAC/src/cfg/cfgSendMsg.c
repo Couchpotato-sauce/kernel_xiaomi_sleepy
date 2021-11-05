@@ -39,7 +39,6 @@
 #include "cfgPriv.h"
 #include "limTrace.h"
 #include "cfgDebug.h"
-#include <disable.h>
 
 extern void SysProcessMmhMsg(tpAniSirGlobal pMac, tSirMsgQ* pMsg);
 

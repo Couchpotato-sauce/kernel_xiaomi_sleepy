@@ -43,7 +43,6 @@
 #include <linux/ratelimit.h>
 #include <asm/arch_timer.h>
 #include <vos_utils.h>
-#include <disable.h>
 
 
 #define LOGGING_TRACE(level, args...) \

@@ -73,7 +73,6 @@
 /* BT-AMP PAL API header file */ 
 #include "bapApi.h" 
 #include "bapInternal.h" 
-#include <disable.h>
 
 //#define BAP_DEBUG
 /*----------------------------------------------------------------------------

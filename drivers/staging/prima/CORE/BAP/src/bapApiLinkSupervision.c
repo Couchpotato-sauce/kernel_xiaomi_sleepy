@@ -72,7 +72,6 @@
 #include "bapApi.h" 
 #include "bapInternal.h"
 #include "bapApiTimer.h"
-#include <disable.h>
 
 /*----------------------------------------------------------------------------
  * Preprocessor Definitions and Constants

@@ -43,7 +43,6 @@
 #include "limTrace.h"
 #include "limSendSmeRspMessages.h"
 #include "limTypes.h"
-#include <disable.h>
 
 
 #define ADMIT_CONTROL_LOGLEVEL        LOG1

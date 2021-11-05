@@ -53,7 +53,6 @@
 #include "limSendMessages.h"
 #include "rrmGlobal.h"
 #include "rrmApi.h"
-#include <disable.h>
 
 tANI_U8
 rrmGetMinOfMaxTxPower(tpAniSirGlobal pMac,

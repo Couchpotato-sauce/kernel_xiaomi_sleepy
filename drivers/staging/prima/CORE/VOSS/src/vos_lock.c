@@ -52,7 +52,6 @@
 #include "i_vos_diag_core_event.h"
 #include "vos_diag_core_event.h"
 #include <linux/wcnss_wlan.h>
-#include <disable.h>
 
 
 /*----------------------------------------------------------------------------

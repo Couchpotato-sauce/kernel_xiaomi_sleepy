@@ -35,7 +35,6 @@ Implements the dump commands specific to the ccm module.
 
 #include "aniGlobal.h"
 #include "logDump.h"
-#include <disable.h>
 
 #if defined(ANI_LOGDUMP)
 

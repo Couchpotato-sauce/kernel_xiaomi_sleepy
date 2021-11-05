@@ -49,7 +49,6 @@
 #include "vos_packet.h"
 
 //#include "aniSsmUtils.h"
-#include <disable.h>
 
 /*
  * Opaque replay counter type. Does TX and RX side replay counter

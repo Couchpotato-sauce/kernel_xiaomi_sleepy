@@ -129,7 +129,6 @@
 #include "wlan_nv_template_internal.h"
 #include "wlan_nv_template_api.h"
 #include "wlan_nv_template_builtin.h"
-#include <disable.h>
 
 
 

@@ -72,7 +72,6 @@ when        who         what, where, why
 #include "sme_Api.h"
 #include "macInitApi.h"
 #include "vos_sched.h"
-#include <disable.h>
 
 VOS_STATUS WLANFTM_McProcessMsg (v_VOID_t *message);
 

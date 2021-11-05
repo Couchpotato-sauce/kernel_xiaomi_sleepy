@@ -39,7 +39,6 @@
 #include "sme_Trace.h"
 #include "smeInternal.h"
 #include "smeInside.h"
-#include <disable.h>
 
 #ifndef SME_TRACE_RECORD
 void smeTraceInit(tpAniSirGlobal pMac)

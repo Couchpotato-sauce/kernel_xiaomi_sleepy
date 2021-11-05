@@ -93,7 +93,6 @@
 #include "vos_diag_core_event.h"
 
 #include "vos_api.h"
-#include <disable.h>
 
 /*===========================================================================
    WLAN DAL Control Path Internal Data Definitions and Declarations

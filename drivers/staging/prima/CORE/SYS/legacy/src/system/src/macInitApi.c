@@ -51,7 +51,6 @@
 #ifdef TRACE_RECORD
 #include "macTrace.h"
 #endif
-#include <disable.h>
 
 extern tSirRetStatus halDoCfgInit(tpAniSirGlobal pMac);
 extern tSirRetStatus halProcessStartEvent(tpAniSirGlobal pMac);

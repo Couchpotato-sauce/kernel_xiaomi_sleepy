@@ -51,7 +51,6 @@
 #include "limIbssPeerMgmt.h"
 #ifdef WLAN_FEATURE_RMC
 #include "limRMC.h"
-#include <disable.h>
 #endif
 
 

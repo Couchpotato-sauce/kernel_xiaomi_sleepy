@@ -46,7 +46,6 @@
 #include "limTrace.h"
 #include "limTimerUtils.h"
 #include "vos_trace.h"
-#include <disable.h>
 
 
 #ifdef LIM_TRACE_RECORD

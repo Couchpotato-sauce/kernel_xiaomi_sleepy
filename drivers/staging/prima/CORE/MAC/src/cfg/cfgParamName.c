@@ -33,7 +33,6 @@
  * IMPORTANT:  This file is for system that supports STA mode ONLY.
  */
 #include "cfgPriv.h"
-#include <disable.h>
 
 unsigned char *gCfgParamName[] = {
     (unsigned char *)"STA_ID",

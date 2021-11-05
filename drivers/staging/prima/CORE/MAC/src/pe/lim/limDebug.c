@@ -37,7 +37,6 @@
   ========================================================================*/
 
 #include "limDebug.h"
-#include <disable.h>
 
 void limLog(tpAniSirGlobal pMac, tANI_U32 loglevel, const char *pString,...) 
 {

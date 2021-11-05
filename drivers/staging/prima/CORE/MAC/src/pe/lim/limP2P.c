@@ -57,7 +57,6 @@
 #include "limUtils.h"
 #include "limSessionUtils.h"
 #include "wlan_qct_wda.h"
-#include <disable.h>
 
 #define   PROBE_RSP_IE_OFFSET    36
 #define   BSSID_OFFSET           16

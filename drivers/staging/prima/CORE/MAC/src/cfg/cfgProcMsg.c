@@ -40,7 +40,6 @@
 #include "cfgPriv.h"
 #include "cfgDebug.h"
 #include "wlan_qct_wda.h"
-#include <disable.h>
 
 tAniSirCgStatic cfgStatic[CFG_PARAM_MAX_NUM] =
 {

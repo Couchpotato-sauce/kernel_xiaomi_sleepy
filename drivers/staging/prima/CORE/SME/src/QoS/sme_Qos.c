@@ -54,7 +54,6 @@
 #endif
 
 #include "vos_utils.h"
-#include <disable.h>
 
 #ifndef WLAN_MDM_CODE_REDUCTION_OPT
 /* TODO : 6Mbps as Cisco APs seem to like only this value; analysis req.   */

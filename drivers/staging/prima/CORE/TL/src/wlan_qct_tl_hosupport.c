@@ -66,7 +66,6 @@
 #include "wlan_qct_tl_hosupport.h"
 #include "wlan_qct_tli.h"
 #include "tlDebug.h"
-#include <disable.h>
 /*----------------------------------------------------------------------------
  * Preprocessor Definitions and Constants
  * -------------------------------------------------------------------------*/
