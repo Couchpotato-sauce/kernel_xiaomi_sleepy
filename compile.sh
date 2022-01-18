@@ -39,12 +39,6 @@ build_clang() {
     OBJDUMP="ccache llvm-objdump"\
     OBJSIZE="ccache llvm-size" \
     READELF="ccache llvm-readelf" \
-    HOSTCC="ccache clang" \
-    HOSTCXX="ccache clang++" \
-    HOSTAR="ccache llvm-ar" \
-    HOSTAS="ccache llvm-as" \
-    HOSTNM="ccache llvm-nm" \
-    HOSTLD="ccache ld.lld" \
 	CROSS_COMPILE=aarch64-linux-gnu- \
 	CROSS_COMPILE_ARM32=arm-linux-gnueabi-
 }
