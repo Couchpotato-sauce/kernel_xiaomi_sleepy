@@ -1,5 +1,12 @@
 #!/bin/sh
 
+# Option on whether to upload the produced build to a file hosting service [Useful for CI builds]
+UPLD=1
+	if [ $UPLD = 1 ]; then
+		UPLD_PROV="https://oshi.at"
+        UPLD_PROV2="https://transfer.sh"
+	fi
+
 # Setup the build environment
 git clone --depth=1 https://github.com/akhilnarang/scripts environment
 cd environment && bash setup/android_build_env.sh && cd ..
@@ -60,12 +67,13 @@ zip_kernelimage() {
 FILE="$(pwd)/out/arch/arm64/boot/Image.gz-dtb"
 if [ -f "$FILE" ]; then
     zip_kernelimage
-    echo "The kernel has successfully been compiled and can be found in $(pwd)/AnyKernel3/"$KERNEL_NAME".zip"
-    FILE_CI="/drone/src/AnyKernel3/"$KERNEL_NAME".zip"
-    if [ -f "$FILE_CI" ]; then
-        curl --connect-timeout 10 -T "$FILE_CI" https://oshi.at
-        curl --connect-timeout 10 --upload-file "$FILE_CI" https://transfer.sh
-        echo " "
+    KERN_FINAL="$(pwd)/AnyKernel3/"$KERNEL_NAME".zip"
+    echo "The kernel has successfully been compiled and can be found in $KERN_FINAL"
+    if [ "$UPLD" = 1 ]; then
+        for i in "$UPLD_PROV" "$UPLD_PROV2"; do
+            curl --connect-timeout 5 -T "$KERN_FINAL" "$i"
+            echo " "
+        done
     fi
 else
     echo "The kernel has failed to compile. Please check the terminal output for further details."
