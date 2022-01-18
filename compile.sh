@@ -4,14 +4,14 @@
 git clone --depth=1 https://github.com/akhilnarang/scripts environment
 cd environment && bash setup/android_build_env.sh && cd ..
 
-# Clone proton clang from kdrag0n's repo
-git clone --depth=1 https://github.com/kdrag0n/proton-clang proton-clang
+# Clone azure clang from its repo
+git clone --depth=1 https://gitlab.com/Panchajanya1999/azure-clang.git azure-clang
 
 # Clone AnyKernel3
 git clone --depth=1 https://github.com/Couchpotato-sauce/AnyKernel3 AnyKernel3
 
 # Export the PATH variable
-export PATH="$(pwd)/proton-clang/bin:$PATH"
+export PATH="$(pwd)/azure-clang/bin:$PATH"
 
 # Clean up out
 find out -delete
