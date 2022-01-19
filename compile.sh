@@ -2,14 +2,19 @@
 
 # Option on whether to upload the produced build to a file hosting service [Useful for CI builds]
 UPLD=1
-	if [ $UPLD = 1 ]; then
-		UPLD_PROV="https://oshi.at"
-        UPLD_PROV2="https://transfer.sh"
-	fi
+if [ $UPLD = 1 ]; then
+	UPLD_PROV="https://oshi.at"
+    UPLD_PROV2="https://transfer.sh"
+fi
 
-# Setup the build environment
-git clone --depth=1 https://github.com/akhilnarang/scripts environment
-cd environment && bash setup/android_build_env.sh && cd ..
+if command -v apt &> /dev/null; then
+    # Setup the build environment
+    git clone --depth=1 https://github.com/akhilnarang/scripts environment
+    cd environment && bash setup/android_build_env.sh && cd ..
+else
+    echo "apt is not present in your system"
+    echo "The needed packages must be installed manually"
+fi
 
 # Clone azure clang from its repo
 git clone --depth=1 https://gitlab.com/Panchajanya1999/azure-clang.git azure-clang
